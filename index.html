@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A.T.A.D. – Asistente de Tutores de Animales Domésticos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-dark': '#5c4942',
+            'brand-accent': '#f8a9a4',
+            'brand-light': '#dbc9c4',
+          },
+          fontFamily: {
+            'playfair': ['"Playfair Display"', 'serif'],
+            'libre-baskerville': ['"Libre Baskerville"', 'serif'],
+            'lora': ['Lora', 'serif'],
+            'source-serif': ['"Source Serif Pro"', 'serif'],
+            'amatic': ['"Amatic SC"', 'cursive'],
+          },
+          animation: {
+            'infinite-scroll': 'infinite-scroll 80s linear infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            'infinite-scroll': {
+              from: { transform: 'translateX(0)' },
+              to: { transform: 'translateX(-100%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  :root {
+    --gradient-primary: linear-gradient(135deg, #f8a9a4 0%, #e38a84 100%);
+  }
+  body {
+    background: linear-gradient(300deg, #5c4942, #4a3a35, #5c4942, #6e5850);
+    background-size: 400% 400%;
+    animation: gradient-animation 20s ease infinite;
+  }
+
+  @keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Scroll Progress Bar */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    width: 0%;
+    z-index: 10000;
+  }
+
+  /* Hero Text Roller Animation */
+  .roller-words-container {
+      animation: roll-up 10s infinite ease-in-out;
+  }
+
+  @keyframes roll-up {
+    0%   { transform: translateY(0); }
+    20%  { transform: translateY(0); }
+    25%  { transform: translateY(-20%); }
+    45%  { transform: translateY(-20%); }
+    50%  { transform: translateY(-40%); }
+    70%  { transform: translateY(-40%); }
+    75%  { transform: translateY(-60%); }
+    95%  { transform: translateY(-60%); }
+    100% { transform: translateY(-80%); }
+  }
+  
+  /* Hide scrollbar for a cleaner look */
+  body::-webkit-scrollbar { display: none; }
+  body { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Modal Animations */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { transform: translateY(20px) scale(0.98); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+  }
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+  }
+  .animate-slide-up {
+    animation: slide-up 0.4s ease-out forwards;
+  }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.541.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-brand-dark text-brand-light font-lora">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
