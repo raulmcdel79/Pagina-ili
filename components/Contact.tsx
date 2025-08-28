@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
         <form 
           action="https://formspree.io/f/xblalnpj" 
           method="POST" 
-          className={`mt-16 space-y-6 max-w-2xl mx-auto text-left transition-all duration-1000 delay-200 ${formInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          className="mt-16 space-y-6 max-w-2xl mx-auto text-left"
         >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <input type="text" name="nombre" placeholder="Tu Nombre" required className="w-full px-4 py-3 bg-white/90 text-brand-dark border border-white/10 focus:ring-2 focus:ring-brand-accent outline-none transition-shadow placeholder:text-brand-dark/60"/>
