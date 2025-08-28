@@ -122,9 +122,9 @@ const Footer: React.FC<FooterProps> = ({ onOpenLegalModal }) => {
         {/* Social Media */}
         <div className="py-10 text-center">
           <div className="flex justify-center space-x-6">
-            <a href="#" aria-label="Instagram" className="hover:text-brand-accent transition-colors"><Instagram /></a>
-            <a href="#" aria-label="Facebook" className="hover:text-brand-accent transition-colors"><Facebook /></a>
-            <a href="#" aria-label="TikTok" className="hover:text-brand-accent transition-colors"><Tiktok /></a>
+            <a href="https://www.instagram.com/iliteo?igsh=MWp5d2tyYTFlM3dsNQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-brand-accent transition-colors"><Instagram /></a>
+            <a href="https://www.facebook.com/share/17KMuSVEW9/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-brand-accent transition-colors"><Facebook /></a>
+            <a href="https://www.tiktok.com/@iliteoanimalesdomesticos?_t=ZN-8zFwY0NVVZe&_r=1" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="hover:text-brand-accent transition-colors"><Tiktok /></a>
           </div>
         </div>
         
