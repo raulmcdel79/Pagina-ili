@@ -2,18 +2,29 @@ import React from 'react';
 import { useInView } from '../hooks/useInView';
 
 const dogImages = [
-  'https://images.unsplash.com/photo-1552053831-71594a27632d?q=80&w=2824&auto=format&fit=crop', // Golden Retriever
-  'https://images.unsplash.com/photo-1517423440428-a5a003da8b33?q=80&w=2788&auto=format&fit=crop', // Pug
-  'https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?q=80&w=2788&auto=format&fit=crop', // French Bulldog
-  'https://images.unsplash.com/photo-1568572933382-74d440642117?q=80&w=2835&auto=format&fit=crop', // Husky
-  'https://images.unsplash.com/photo-1559190394-df5a28aab5c5?q=80&w=2787&auto=format&fit=crop', // Corgi
-  'https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=2874&auto=format&fit=crop', // Beagle
-  'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2940&auto=format&fit=crop', // Two dogs playing
-  'https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?q=80&w=2788&auto=format&fit=crop', // Dog in a field
-  'https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=2940&auto=format&fit=crop', // Weimaraner
-  'https://images.unsplash.com/photo-1525253086316-d07e30448161?q=80&w=2874&auto=format&fit=crop', // Dog with glasses
-  'https://images.unsplash.com/photo-1596492784533-2c70a2b59878?q=80&w=2787&auto=format=fit', // Small fluffy dog
-  'https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=2940&auto=format=fit=crop', // Dog pile
+  '/imagenes/FB_IMG_1706864235551 - copia.jpg',
+  '/imagenes/IMG-20241222-WA0053 - copia.jpg',
+  '/imagenes/IMG-20241231-WA0000 - copia.jpg',
+  '/imagenes/IMG-20250325-WA0037 - copia.jpg',
+  '/imagenes/IMG-20250329-WA0007 - copia.jpg',
+  '/imagenes/IMG-20250329-WA0010 - copia.jpg',
+  '/imagenes/IMG-20250421-WA0021 - copia.jpg',
+  '/imagenes/IMG-20250512-WA0010 - copia.jpg',
+  '/imagenes/IMG-20250527-WA0065 - copia.jpg',
+  '/imagenes/IMG-20250529-WA0046 - copia.jpg',
+  '/imagenes/IMG-20250810-WA0007.jpg',
+  '/imagenes/IMG-20250820-WA0026.jpg',
+  '/imagenes/IMG_20250401_102924 - copia.jpg',
+  '/imagenes/IMG_20250606_180743 - copia.jpg',
+  '/imagenes/IMG_20250607_134135 - copia.jpg',
+  '/imagenes/IMG_20250607_134931 - copia.jpg',
+  '/imagenes/IMG_20250626_201008 - copia.jpg',
+  '/imagenes/IMG_20250719_154716 - copia.jpg',
+  '/imagenes/IMG_20250722_212252 - copia.jpg',
+  '/imagenes/IMG_20250820_144657.jpg',
+  '/imagenes/IMG_20250821_104645.jpg',
+  '/imagenes/trashed-1737544170-IMG_20241219_160158 - copia.jpg',
+  '/imagenes/trashed-1755627700-IMG_20250718_231709 - copia.jpg',
 ];
 
 
