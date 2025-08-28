@@ -6,17 +6,17 @@ const articles = [
   {
     title: 'Revista 1',
     image: '/imagenes/1 revista.png.png',
-    link: 'https://enlace-a-la-revista-1.com',
+    link: 'https://www.instagram.com/iliteo/p/DMLSR8otDz1/',
   },
   {
     title: 'Revista 2',
     image: '/imagenes/2 revista.png.png',
-    link: 'https://enlace-a-la-revista-2.com',
+    link: 'https://www.instagram.com/iliteo/p/DMLUHQWtnoL/',
   },
   {
-    title: 'Nueva ley de protección animal: lo que todo tutor debe saber',
+    title: 'Revista 3',
     image: '/imagenes/3 revista.png.png',
-    link: 'https://enlace-a-la-revista-3.com',
+    link: 'https://www.instagram.com/iliteo/p/DNp1wofN0qd/',
   },
 ];
 
