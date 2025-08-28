@@ -6,17 +6,17 @@ const articles = [
   {
     category: 'Cuidado y Bienestar',
     title: '5 señales de que tu perro te ama incondicionalmente',
-    image: '/imagenes/1 revista.png',
+    image: '/imagenes/1 revista.png.png',
   },
   {
     category: 'Entrevistas',
     title: 'Hablando con un etólogo: los mitos más comunes sobre gatos',
-    image: '/imagenes/2 revista.png',
+    image: '/imagenes/2 revista.png.png',
   },
   {
     category: 'Noticias',
     title: 'Nueva ley de protección animal: lo que todo tutor debe saber',
-    image: '/imagenes/3 revista.png',
+    image: '/imagenes/3 revista.png.png',
   },
 ];
 
