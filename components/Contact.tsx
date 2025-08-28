@@ -17,7 +17,7 @@ const Contact: React.FC = () => {
       style={{ backgroundImage: "url('https://images.unsplash.com/photo-1546238232-20216dec9f72?q=80&w=2784&auto=format&fit=crop')" }}
     >
       <div className="absolute inset-0 bg-brand-dark/75"></div>
-      <div className="relative z-10 container mx-auto px-6 max-w-3xl text-center">
+  <div className="relative z-30 container mx-auto px-6 max-w-3xl text-center">
         <div ref={titleRef}>
           <h2 className={`text-4xl md:text-6xl font-playfair text-brand-light font-bold transition-all duration-1000 ease-out ${titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             ¿Tenés alguna consulta?
