@@ -5,7 +5,7 @@ const About: React.FC = () => {
   const [ref, isInView] = useInView<HTMLElement>({ threshold: 0.2, triggerOnce: true });
 
   return (
-    <section id="sobre-ili" ref={ref} className={`py-24 md:py-32 overflow-hidden`}>
+  <section id="sobre-ili" ref={ref} className={`py-24 md:py-32 overflow-hidden`} style={{ background: '#dbc9c4' }}>
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-5 gap-12 items-center">
           <div className={`md:col-span-2 transition-all duration-1000 ease-out ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
@@ -36,9 +36,9 @@ const About: React.FC = () => {
                 Estoy aquí para ayudarte a cuidar y amar a tu mascota, brindándote el apoyo y la tranquilidad que necesitas.
               </p>
             </div>
-            <div className="flex flex-col items-center mt-8">
-              <img src="/imagenes/logo.png" alt="Logo" className="h-16 mb-2" />
-              <img src="/imagenes/firma.png" alt="Firma Iliana Nicolón" className="h-12" />
+            <div className="flex flex-row items-center justify-center mt-8 gap-8">
+              <img src="/imagenes/logo.png" alt="Logo" className="h-28" />
+              <img src="/imagenes/firma.png" alt="Firma Iliana Nicolón" className="h-20" />
             </div>
           </div>
         </div>
