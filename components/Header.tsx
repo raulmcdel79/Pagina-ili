@@ -35,7 +35,8 @@ const Header: React.FC = () => {
     if (targetElement) {
       setTimeout(() => {
         const headerElement = document.querySelector('header');
-        const headerOffset = headerElement ? headerElement.offsetHeight : 80;
+        // Aumenta el offset para dejar más espacio arriba del título de la sección
+        const headerOffset = (headerElement ? headerElement.offsetHeight : 80) + 24;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
