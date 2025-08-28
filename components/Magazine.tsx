@@ -4,37 +4,40 @@ import { ArrowRight } from 'lucide-react';
 
 const articles = [
   {
-    category: 'Cuidado y Bienestar',
     title: '5 señales de que tu perro te ama incondicionalmente',
     image: '/imagenes/1 revista.png.png',
+    link: 'https://enlace-a-la-revista-1.com',
   },
   {
-    category: 'Entrevistas',
     title: 'Hablando con un etólogo: los mitos más comunes sobre gatos',
     image: '/imagenes/2 revista.png.png',
+    link: 'https://enlace-a-la-revista-2.com',
   },
   {
-    category: 'Noticias',
     title: 'Nueva ley de protección animal: lo que todo tutor debe saber',
     image: '/imagenes/3 revista.png.png',
+    link: 'https://enlace-a-la-revista-3.com',
   },
 ];
 
 const ArticleCard: React.FC<{ article: typeof articles[0]; delay: number; isInView: boolean }> = ({ article, delay, isInView }) => (
-  <div 
-    className={`bg-white/5 group border border-white/10 transition-all duration-700 ease-out hover:bg-white/10 hover:-translate-y-2 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+  <div
+    className={`flex flex-col items-center bg-white/5 rounded-xl overflow-hidden shadow-lg transition-all duration-700 ease-out hover:bg-white/10 hover:-translate-y-2 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
     style={{ transitionDelay: `${delay}ms` }}
   >
-    <div className="overflow-hidden">
-        <img src={article.image} alt={article.title} loading="lazy" className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" />
-    </div>
-    <div className="p-6">
-        <p className="text-sm text-brand-accent mb-2 tracking-wider uppercase">{article.category}</p>
-        <h3 className="text-xl font-libre-baskerville text-brand-light mb-4 h-20">{article.title}</h3>
-        <a href="#" className="font-bold text-brand-accent group-hover:text-brand-light transition-colors flex items-center">
-            Leer más <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </a>
-    </div>
+    <img
+      src={article.image}
+      alt={article.title}
+      className="w-full h-80 object-cover"
+    />
+    <a
+      href={article.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-full block text-center bg-brand-accent text-brand-dark font-bold py-3 transition hover:bg-brand-light"
+    >
+      Sigue leyendo
+    </a>
   </div>
 );
 
