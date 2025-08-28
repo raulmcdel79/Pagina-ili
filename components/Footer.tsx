@@ -94,9 +94,17 @@ const Footer: React.FC<FooterProps> = ({ onOpenLegalModal }) => {
 
           <div className="flex flex-col items-center sm:items-end mt-8 sm:mt-0">
             <h4 className="font-bold text-brand-light tracking-widest uppercase mb-4 text-sm">Newsletter</h4>
-            <form className="flex flex-col sm:flex-row gap-2 w-full max-w-xs">
+            <form
+              className="flex flex-col sm:flex-row gap-2 w-full max-w-xs"
+              onSubmit={e => {
+                e.preventDefault();
+                const email = e.currentTarget.elements.namedItem('newsletterEmail').value;
+                window.location.href = `mailto:ilinicolonf@hotmail.com?subject=Suscripci%C3%B3n%20Newsletter&body=Email:%20${encodeURIComponent(email)}`;
+              }}
+            >
               <input
                 type="email"
+                name="newsletterEmail"
                 placeholder="Tu email"
                 className="rounded px-3 py-2 text-sm text-brand-dark bg-white/80 focus:outline-none focus:ring-2 focus:ring-brand-accent"
                 required
