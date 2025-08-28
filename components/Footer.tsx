@@ -64,8 +64,8 @@ const Footer: React.FC<FooterProps> = ({ onOpenLegalModal }) => {
     <footer ref={ref} className={`bg-black/20 text-brand-light/60 py-16 transition-all duration-1000 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="container mx-auto px-6">
         
-        {/* Menu and Legal Links */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-lg mx-auto mb-12 text-center sm:text-left">
+        {/* Menu, Legal Links, and Newsletter */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12 text-center sm:text-left items-start">
           <div>
             <h4 className="font-bold text-brand-light tracking-widest uppercase mb-4 text-sm">Menú</h4>
             <ul className="space-y-3 text-base">
@@ -82,7 +82,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenLegalModal }) => {
               ))}
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-bold text-brand-light tracking-widest uppercase mb-4 text-sm">Legal</h4>
             <ul className="space-y-3 text-base">
@@ -90,6 +90,24 @@ const Footer: React.FC<FooterProps> = ({ onOpenLegalModal }) => {
               <li><button onClick={() => onOpenLegalModal('legal')} className="hover:text-brand-light transition-colors w-full text-center sm:text-left">Aviso Legal</button></li>
               <li><button onClick={() => onOpenLegalModal('cookies')} className="hover:text-brand-light transition-colors w-full text-center sm:text-left">Cookies</button></li>
             </ul>
+          </div>
+
+          <div className="flex flex-col items-center sm:items-end mt-8 sm:mt-0">
+            <h4 className="font-bold text-brand-light tracking-widest uppercase mb-4 text-sm">Newsletter</h4>
+            <form className="flex flex-col sm:flex-row gap-2 w-full max-w-xs">
+              <input
+                type="email"
+                placeholder="Tu email"
+                className="rounded px-3 py-2 text-sm text-brand-dark bg-white/80 focus:outline-none focus:ring-2 focus:ring-brand-accent"
+                required
+              />
+              <button
+                type="submit"
+                className="bg-brand-accent text-brand-dark font-bold px-4 py-2 rounded hover:bg-brand-light transition-colors"
+              >
+                Suscribirse
+              </button>
+            </form>
           </div>
         </div>
         
