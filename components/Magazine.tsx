@@ -4,12 +4,12 @@ import { ArrowRight } from 'lucide-react';
 
 const articles = [
   {
-    title: '5 señales de que tu perro te ama incondicionalmente',
+    title: 'Revista 1',
     image: '/imagenes/1 revista.png.png',
     link: 'https://enlace-a-la-revista-1.com',
   },
   {
-    title: 'Hablando con un etólogo: los mitos más comunes sobre gatos',
+    title: 'Revista 2',
     image: '/imagenes/2 revista.png.png',
     link: 'https://enlace-a-la-revista-2.com',
   },
