@@ -10,7 +10,7 @@ const About: React.FC = () => {
         <div className="grid md:grid-cols-5 gap-12 items-center">
             <div className={`md:col-span-2 transition-all duration-1000 ease-out ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
         <img 
-          src="/imagenes/sobre-ili.png.jpg" 
+          src="/imagenes/sobre-ili.png.png" 
           alt="Iliana Nicolón" 
           loading="lazy"
           className="w-full h-auto object-cover aspect-[4/5]"
