@@ -19,7 +19,7 @@ const About: React.FC = () => {
           <div className={`md:col-span-3 transition-all duration-1000 ease-out delay-200 ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <p className="font-amatic text-5xl md:text-6xl uppercase mb-2 tracking-widest text-brand-accent">Sobre Ili</p>
             <h2 className="text-4xl md:text-6xl font-playfair mb-6">Pasión y Profesionalismo</h2>
-            <div className="space-y-4 text-brand-light/80 leading-relaxed font-source-serif">
+            <div className="space-y-4 leading-relaxed font-source-serif" style={{ color: '#3d2c23' }}>
               <p>
                 Mi nombre es Iliana y nací en Uruguay, donde estudié Enfermería y Comunicación Social, especializándome en Publicidad. Desde siempre, me ha fascinado el comportamiento humano en todas sus facetas. Mi naturaleza empática me lleva a estar siempre dispuesta a acompañar y apoyar a quienes se sienten solos o necesitan ser escuchados. Además, soy una amante de la naturaleza y los animales, y amo estar rodeada de ellos.
               </p>
@@ -38,7 +38,7 @@ const About: React.FC = () => {
             </div>
             <div className="flex flex-row items-center justify-center mt-8 gap-8">
               <img src="/imagenes/logo.png" alt="Logo" className="h-28" />
-              <img src="/imagenes/firma.png" alt="Firma Iliana Nicolón" className="h-20" />
+              <img src="/imagenes/firma.png" alt="Firma Iliana Nicolón" className="h-40" />
             </div>
           </div>
         </div>
