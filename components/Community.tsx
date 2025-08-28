@@ -2,29 +2,25 @@ import React from 'react';
 import { useInView } from '../hooks/useInView';
 
 const dogImages = [
-  '/imagenes/FB_IMG_1706864235551 - copia.jpg',
-  '/imagenes/IMG-20241222-WA0053 - copia.jpg',
-  '/imagenes/IMG-20241231-WA0000 - copia.jpg',
-  '/imagenes/IMG-20250325-WA0037 - copia.jpg',
-  '/imagenes/IMG-20250329-WA0007 - copia.jpg',
-  '/imagenes/IMG-20250329-WA0010 - copia.jpg',
-  '/imagenes/IMG-20250421-WA0021 - copia.jpg',
-  '/imagenes/IMG-20250512-WA0010 - copia.jpg',
-  '/imagenes/IMG-20250527-WA0065 - copia.jpg',
-  '/imagenes/IMG-20250529-WA0046 - copia.jpg',
-  '/imagenes/IMG-20250810-WA0007.jpg',
-  '/imagenes/IMG-20250820-WA0026.jpg',
-  '/imagenes/IMG_20250401_102924 - copia.jpg',
-  '/imagenes/IMG_20250606_180743 - copia.jpg',
-  '/imagenes/IMG_20250607_134135 - copia.jpg',
-  '/imagenes/IMG_20250607_134931 - copia.jpg',
-  '/imagenes/IMG_20250626_201008 - copia.jpg',
-  '/imagenes/IMG_20250719_154716 - copia.jpg',
-  '/imagenes/IMG_20250722_212252 - copia.jpg',
-  '/imagenes/IMG_20250820_144657.jpg',
-  '/imagenes/IMG_20250821_104645.jpg',
-  '/imagenes/trashed-1737544170-IMG_20241219_160158 - copia.jpg',
-  '/imagenes/trashed-1755627700-IMG_20250718_231709 - copia.jpg',
+  '/imagenes/1.png',
+  '/imagenes/2.png',
+  '/imagenes/3.png',
+  '/imagenes/4.png',
+  '/imagenes/5.png',
+  '/imagenes/6.png',
+  '/imagenes/7.png',
+  '/imagenes/8.png',
+  '/imagenes/9.png',
+  '/imagenes/10.png',
+  '/imagenes/11.png',
+  '/imagenes/12.png',
+  '/imagenes/13.png',
+  '/imagenes/14.png',
+  '/imagenes/15.png',
+  '/imagenes/16.png',
+  '/imagenes/17.png',
+  '/imagenes/18.png',
+  '/imagenes/19.png',
 ];
 
 
@@ -41,14 +37,14 @@ const Community: React.FC = () => {
             <ul className="flex items-center justify-center shrink-0 [&_li]:mx-8 animate-infinite-scroll group-hover:[animation-play-state:paused]">
                 {dogImages.map((src, index) => (
                     <li key={`${src}-${index}`} className="opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105">
-                        <img src={src} alt={`Compañero ${index + 1}`} loading="lazy" className="h-24 w-24 object-cover border-4 border-white/10" style={{ borderRadius: '0.5rem' }} />
+                        <img src={src} alt={`Compañero ${index + 1}`} loading="lazy" className="h-20 w-20 rounded-full object-cover object-center border-4 border-white/10" />
                     </li>
                 ))}
             </ul>
             <ul className="flex items-center justify-center shrink-0 [&_li]:mx-8 animate-infinite-scroll group-hover:[animation-play-state:paused]" aria-hidden="true">
                 {dogImages.map((src, index) => (
                     <li key={`${src}-${index}-clone`} className="opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105">
-                        <img src={src} alt={`Compañero ${index + 1}`} loading="lazy" className="h-24 w-24 object-cover border-4 border-white/10" style={{ borderRadius: '0.5rem' }} />
+                        <img src={src} alt={`Compañero ${index + 1}`} loading="lazy" className="h-20 w-20 rounded-full object-cover object-center border-4 border-white/10" />
                     </li>
                 ))}
             </ul>
