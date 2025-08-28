@@ -9,12 +9,12 @@ const About: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-5 gap-12 items-center">
             <div className={`md:col-span-2 transition-all duration-1000 ease-out ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-                <img 
-                    src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=2787&auto=format&fit=crop" 
-                    alt="Iliana Nicolón" 
-                    loading="lazy"
-                    className="w-full h-auto object-cover aspect-[4/5]"
-                />
+        <img 
+          src="/imagenes/sobre-ili.png" 
+          alt="Iliana Nicolón" 
+          loading="lazy"
+          className="w-full h-auto object-cover aspect-[4/5]"
+        />
             </div>
             <div className={`md:col-span-3 transition-all duration-1000 ease-out delay-200 ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
                 <p className="font-amatic text-5xl md:text-6xl uppercase mb-2 tracking-widest text-brand-accent">Sobre Ili</p>

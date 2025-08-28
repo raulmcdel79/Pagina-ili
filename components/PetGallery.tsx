@@ -3,11 +3,29 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
 const petImages = [
-  'https://images.unsplash.com/photo-1583337130417-2346a5be24c1?q=80&w=2940&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1592194991823-235b432a7589?q=80&w=2787&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1552053831-71594a27632d?q=80&w=2824&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?q=80&w=2865&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1568572933382-74d440642117?q=80&w=2835&auto=format&fit=crop',
+  '/imagenes/FB_IMG_1706864235551 - copia.jpg',
+  '/imagenes/IMG-20241222-WA0053 - copia.jpg',
+  '/imagenes/IMG-20241231-WA0000 - copia.jpg',
+  '/imagenes/IMG-20250325-WA0037 - copia.jpg',
+  '/imagenes/IMG-20250329-WA0007 - copia.jpg',
+  '/imagenes/IMG-20250329-WA0010 - copia.jpg',
+  '/imagenes/IMG-20250421-WA0021 - copia.jpg',
+  '/imagenes/IMG-20250512-WA0010 - copia.jpg',
+  '/imagenes/IMG-20250527-WA0065 - copia.jpg',
+  '/imagenes/IMG-20250529-WA0046 - copia.jpg',
+  '/imagenes/IMG-20250810-WA0007.jpg',
+  '/imagenes/IMG-20250820-WA0026.jpg',
+  '/imagenes/IMG_20250401_102924 - copia.jpg',
+  '/imagenes/IMG_20250606_180743 - copia.jpg',
+  '/imagenes/IMG_20250607_134135 - copia.jpg',
+  '/imagenes/IMG_20250607_134931 - copia.jpg',
+  '/imagenes/IMG_20250626_201008 - copia.jpg',
+  '/imagenes/IMG_20250719_154716 - copia.jpg',
+  '/imagenes/IMG_20250722_212252 - copia.jpg',
+  '/imagenes/IMG_20250820_144657.jpg',
+  '/imagenes/IMG_20250821_104645.jpg',
+  '/imagenes/trashed-1737544170-IMG_20241219_160158 - copia.jpg',
+  '/imagenes/trashed-1755627700-IMG_20250718_231709 - copia.jpg',
 ];
 
 const PetGallery: React.FC = () => {
