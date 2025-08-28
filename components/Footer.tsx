@@ -99,6 +99,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenLegalModal }) => {
               method="POST"
               className="flex flex-col gap-2 w-full max-w-xs bg-white/10 p-4 rounded"
             >
+              <input type="hidden" name="_subject" value="Nueva suscripción al newsletter" />
               <label className="text-xs text-brand-light/80 mb-1">Tu email:
                 <input
                   type="email"
@@ -106,14 +107,6 @@ const Footer: React.FC<FooterProps> = ({ onOpenLegalModal }) => {
                   placeholder="Tu email"
                   className="mt-1 rounded px-3 py-2 text-sm text-brand-dark bg-white/80 focus:outline-none focus:ring-2 focus:ring-brand-accent w-full"
                   required
-                />
-              </label>
-              <label className="text-xs text-brand-light/80 mb-1">Mensaje:
-                <textarea
-                  name="message"
-                  placeholder="Tu mensaje..."
-                  className="mt-1 rounded px-3 py-2 text-sm text-brand-dark bg-white/80 focus:outline-none focus:ring-2 focus:ring-brand-accent w-full"
-                  rows={2}
                 />
               </label>
               <button
