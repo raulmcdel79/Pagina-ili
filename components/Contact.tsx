@@ -22,9 +22,10 @@ const Contact: React.FC = () => {
           <h2 className={`text-4xl md:text-6xl font-playfair text-brand-light font-bold transition-all duration-1000 ease-out ${titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             ¿Tenés alguna consulta?
           </h2>
-          <p className={`mt-6 max-w-2xl mx-auto text-lg text-brand-light/70 leading-relaxed transition-all duration-1000 ease-out delay-200 ${titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              Completá el formulario o contactame directamente por WhatsApp. Estoy para ayudarte a vos y a tu compañero.
-          </p>
+      <p className={`mt-6 max-w-2xl mx-auto text-lg text-brand-light/70 leading-relaxed transition-all duration-1000 ease-out delay-200 ${titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        Completá el formulario o contactame directamente por WhatsApp.<br />
+        <span className="block mt-2">Estoy para ayudarte a vos y a tu compañero.</span>
+      </p>
         </div>
 
         <form ref={formRef} onSubmit={handleSubmit} className={`mt-16 space-y-6 max-w-2xl mx-auto text-left transition-all duration-1000 delay-200 ${formInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
