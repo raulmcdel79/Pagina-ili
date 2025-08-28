@@ -28,21 +28,27 @@ const Contact: React.FC = () => {
       </p>
         </div>
 
-        <form ref={formRef} onSubmit={handleSubmit} className={`mt-16 space-y-6 max-w-2xl mx-auto text-left transition-all duration-1000 delay-200 ${formInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <input type="text" placeholder="Tu Nombre" required className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:ring-2 focus:ring-brand-accent outline-none transition-shadow placeholder:text-brand-light/40"/>
-                <input type="email" placeholder="Tu Email" required className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:ring-2 focus:ring-brand-accent outline-none transition-shadow placeholder:text-brand-light/40"/>
-            </div>
-            <textarea 
-                rows={4} 
-                placeholder="Tu mensaje..."
-                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:ring-2 focus:ring-brand-accent outline-none transition-shadow placeholder:text-brand-light/40"
-            ></textarea>
-            <div className="text-center pt-4">
-                <button type="submit" className="bg-brand-light text-brand-dark px-10 py-3 text-base font-bold tracking-wider hover:bg-brand-accent transition-all duration-300 active:scale-95">
-                    Enviar Mensaje
-                </button>
-            </div>
+        <form 
+          action="https://formspree.io/f/xblalnpj" 
+          method="POST" 
+          className={`mt-16 space-y-6 max-w-2xl mx-auto text-left transition-all duration-1000 delay-200 ${formInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <input type="text" name="nombre" placeholder="Tu Nombre" required className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:ring-2 focus:ring-brand-accent outline-none transition-shadow placeholder:text-brand-light/40"/>
+        <input type="email" name="email" placeholder="Tu Email" required className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:ring-2 focus:ring-brand-accent outline-none transition-shadow placeholder:text-brand-light/40"/>
+      </div>
+      <textarea 
+        name="mensaje"
+        rows={4} 
+        placeholder="Tu mensaje..."
+        required
+        className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:ring-2 focus:ring-brand-accent outline-none transition-shadow placeholder:text-brand-light/40"
+      ></textarea>
+      <div className="text-center pt-4">
+        <button type="submit" className="bg-brand-light text-brand-dark px-10 py-3 text-base font-bold tracking-wider hover:bg-brand-accent transition-all duration-300 active:scale-95">
+          Enviar Mensaje
+        </button>
+      </div>
         </form>
       </div>
     </section>
