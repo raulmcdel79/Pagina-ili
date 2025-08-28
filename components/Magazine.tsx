@@ -23,13 +23,16 @@ const articles = [
 const ArticleCard: React.FC<{ article: typeof articles[0]; delay: number; isInView: boolean }> = ({ article, delay, isInView }) => (
   <div
     className={`flex flex-col items-center bg-white/5 rounded-xl overflow-hidden shadow-lg transition-all duration-700 ease-out hover:bg-white/10 hover:-translate-y-2 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-    style={{ transitionDelay: `${delay}ms` }}
+    style={{ transitionDelay: `${delay}ms`, maxWidth: '420px', margin: '0 auto' }}
   >
-    <img
-      src={article.image}
-      alt={article.title}
-      className="w-full h-80 object-cover"
-    />
+    <div className="w-full" style={{ aspectRatio: '4/5' }}>
+      <img
+        src={article.image}
+        alt={article.title}
+        className="w-full h-full object-cover object-center"
+        style={{ aspectRatio: '4/5', display: 'block' }}
+      />
+    </div>
     <a
       href={article.link}
       target="_blank"
