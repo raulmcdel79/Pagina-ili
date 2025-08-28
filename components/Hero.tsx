@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
   return (
     <section 
       className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=2940&auto=format&fit=crop')" }}
+    style={{ backgroundImage: "url('/Pagina-ili/imagenes/foto-cabecera.png')" }}
     >
         <div className="absolute inset-0 bg-brand-dark/60"></div>
         <div className="relative z-10">
