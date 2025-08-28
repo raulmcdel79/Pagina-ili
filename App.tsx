@@ -10,7 +10,6 @@ import StatsStrip from './components/StatsStrip';
 import Magazine from './components/Magazine';
 import Booking from './components/Booking';
 import About from './components/About';
-import PetGallery from './components/PetGallery';
 import Contact from './components/Contact';
 import Modal from './components/Modal';
 import PrivacyPolicyContent from './components/legal/PrivacyPolicyContent';
@@ -83,7 +82,6 @@ const App: React.FC = () => {
         <Booking />
         <About />
         <Testimonials />
-        <PetGallery />
         <Community />
         <Contact />
       </main>
