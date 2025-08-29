@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Menu } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -53,24 +54,40 @@ const Header: React.FC = () => {
     { name: 'Revista T.E.O.', href: '#revista' },
     { name: 'Agenda', href: '#agenda' },
     { name: 'Sobre Ili', href: '#sobre-ili' },
+    { name: 'Blog', href: '/blog', isBlog: true },
     { name: 'Contacto', href: '#contacto' },
   ];
   
   const NavLinksComponent: React.FC<{isMobile?: boolean}> = ({ isMobile = false }) => (
     <>
       {navLinks.map(link => (
-        <a 
-          key={link.name} 
-          href={link.href} 
-          onClick={(e) => handleNavClick(e, link.href)}
-          className={isMobile 
-            ? "text-2xl font-playfair text-brand-light py-3 text-center hover:text-brand-accent transition-colors duration-300"
-            : "text-brand-light/80 hover:text-brand-light transition-colors duration-300 relative group text-sm tracking-wider"
-          }
-        >
-          {link.name}
-          {!isMobile && <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-brand-light transition-all duration-300 group-hover:w-full"></span>}
-        </a>
+        link.isBlog ? (
+          <Link
+            key={link.name}
+            to={link.href}
+            onClick={() => setIsMenuOpen(false)}
+            className={isMobile
+              ? "text-2xl font-playfair text-brand-light py-3 text-center hover:text-brand-accent transition-colors duration-300"
+              : "text-brand-light/80 hover:text-brand-light transition-colors duration-300 relative group text-sm tracking-wider"
+            }
+          >
+            {link.name}
+            {!isMobile && <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-brand-light transition-all duration-300 group-hover:w-full"></span>}
+          </Link>
+        ) : (
+          <a
+            key={link.name}
+            href={link.href}
+            onClick={(e) => handleNavClick(e, link.href)}
+            className={isMobile
+              ? "text-2xl font-playfair text-brand-light py-3 text-center hover:text-brand-accent transition-colors duration-300"
+              : "text-brand-light/80 hover:text-brand-light transition-colors duration-300 relative group text-sm tracking-wider"
+            }
+          >
+            {link.name}
+            {!isMobile && <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-brand-light transition-all duration-300 group-hover:w-full"></span>}
+          </a>
+        )
       ))}
     </>
   );

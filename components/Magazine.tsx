@@ -6,17 +6,17 @@ const articles = [
   {
     title: 'Revista 1',
     image: '/imagenes/1 revista.png.png',
-    link: 'https://www.instagram.com/iliteo/p/DMLSR8otDz1/',
+    link: ' https://heyzine.com/flip-book/65b63e29e5.html/',
   },
   {
     title: 'Revista 2',
     image: '/imagenes/2 revista.png.png',
-    link: 'https://www.instagram.com/iliteo/p/DMLUHQWtnoL/',
+    link: 'https://heyzine.com/flip-book/71923e55b6.html/',
   },
   {
     title: 'Revista 3',
     image: '/imagenes/3 revista.png.png',
-    link: 'https://www.instagram.com/iliteo/p/DNp1wofN0qd/',
+    link: 'https://heyzine.com/flip-book/1b213e2e74.html/',
   },
 ];
 

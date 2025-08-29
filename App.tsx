@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -11,6 +12,8 @@ import Magazine from './components/Magazine';
 import Booking from './components/Booking';
 import About from './components/About';
 import Contact from './components/Contact';
+import BlogList from './components/BlogList';
+import BlogPost from './components/BlogPost';
 import Modal from './components/Modal';
 import PrivacyPolicyContent from './components/legal/PrivacyPolicyContent';
 import LegalNoticeContent from './components/legal/LegalNoticeContent';
@@ -69,30 +72,38 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="antialiased font-lora text-brand-light/90 selection:bg-brand-accent selection:text-brand-dark">
-      <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
-      
-      <TopBanner />
-      <Header />
-      <main className="overflow-x-hidden">
-        <Hero />
-        <StatsStrip />
-        <Services />
-        <Magazine />
-        <Booking />
-        <About />
-        <Testimonials />
-        <Community />
-        <Contact />
-      </main>
-      <Footer onOpenLegalModal={handleOpenLegalModal} />
-
-      {legalModal && (
-        <Modal isOpen={!!legalModal} onClose={handleCloseLegalModal} title={getModalTitle()}>
-          {getModalContent()}
-        </Modal>
-      )}
-    </div>
+    <Router>
+      <div className="antialiased font-lora text-brand-light/90 selection:bg-brand-accent selection:text-brand-dark">
+        <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
+        <TopBanner />
+        <Header />
+        <main className="overflow-x-hidden">
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Hero />
+                <StatsStrip />
+                <Services />
+                <Magazine />
+                <Booking />
+                <About />
+                <Testimonials />
+                <Community />
+                <Contact />
+              </>
+            } />
+            <Route path="/blog" element={<BlogList />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+          </Routes>
+        </main>
+        <Footer onOpenLegalModal={handleOpenLegalModal} />
+        {legalModal && (
+          <Modal isOpen={!!legalModal} onClose={handleCloseLegalModal} title={getModalTitle()}>
+            {getModalContent()}
+          </Modal>
+        )}
+      </div>
+    </Router>
   );
 };
 
