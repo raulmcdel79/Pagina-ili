@@ -126,19 +126,19 @@ const Header: React.FC = () => {
     <>
       <header className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-black/30 backdrop-blur-lg shadow-2xl' : 'bg-transparent'}`}>
         <div className="container mx-auto px-6 py-5 flex items-center justify-between">
-          {/* Izquierda: A.T.A.D. y descripción */}
-          <div className="flex flex-col items-start">
-            <span className="text-3xl font-bold font-playfair tracking-[0.2em] leading-none">A.T.A.D.</span>
-            <span className="block text-[10px] tracking-[0.1em] text-brand-light/80 uppercase whitespace-nowrap leading-none">Asistente de Tutores de Animales Domésticos</span>
+          {/* Izquierda: Iliana Nicolón */}
+          <div className="flex-1 flex justify-start">
+            <a href="#" onClick={(e) => handleNavClick(e, '#')} className="text-2xl font-bold font-playfair tracking-wider text-brand-light">Iliana Nicolón</a>
           </div>
           {/* Centro: Botonera */}
           <nav className="hidden md:flex space-x-10 justify-center flex-1">
             <NavLinksComponent />
           </nav>
-          {/* Derecha: Iliana Nicolón */}
-          <div className="flex-1 flex justify-end">
-            <a href="#" onClick={(e) => handleNavClick(e, '#')} className="text-2xl font-bold font-playfair tracking-wider text-brand-light">Iliana Nicolón</a>
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-brand-light z-50 ml-4" aria-label="Toggle menu">
+          {/* Derecha: A.T.A.D. y ASISTENTA DE TUTORES DE ANIMALES DOMÉSTICOS */}
+          <div className="flex-1 flex flex-col items-end">
+            <span className="text-3xl font-bold font-playfair tracking-[0.2em] leading-none text-right">A.T.A.D.</span>
+            <span className="block text-[10px] tracking-[0.1em] text-brand-light/80 uppercase whitespace-nowrap leading-none text-right">Asistente de Tutores de Animales Domésticos</span>
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-brand-light z-50 ml-4 mt-2" aria-label="Toggle menu">
               {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
