@@ -134,14 +134,6 @@ const Header: React.FC = () => {
           <nav className="hidden md:flex space-x-10 justify-center flex-1">
             <NavLinksComponent />
           </nav>
-          {/* Derecha: A.T.A.D. y ASISTENTA DE TUTORES DE ANIMALES DOMÉSTICOS */}
-          <div className="flex-1 flex flex-col items-end">
-            <span className="text-3xl font-bold font-playfair tracking-[0.2em] leading-none text-right">A.T.A.D.</span>
-            <span className="block text-[10px] tracking-[0.1em] text-brand-light/80 uppercase whitespace-nowrap leading-none text-right">Asistente de Tutores de Animales Domésticos</span>
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-brand-light z-50 ml-4 mt-2" aria-label="Toggle menu">
-              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-          </div>
             {/* Derecha: A.T.A.D. centrado encima de la descripción */}
             <div className="flex-1 flex flex-col items-end">
               <div className="flex flex-col items-center">
