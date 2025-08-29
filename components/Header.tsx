@@ -125,21 +125,23 @@ const Header: React.FC = () => {
   return (
     <>
       <header className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-black/30 backdrop-blur-lg shadow-2xl' : 'bg-transparent'}`}>
-        <div className="container mx-auto px-6 py-5 flex flex-col md:flex-row md:items-center md:justify-between">
-          {/* Botonera centrada y pegada a la izquierda */}
-          <div className="w-full md:w-auto flex flex-col md:flex-row md:items-center">
-            <a href="#" onClick={(e) => handleNavClick(e, '#')} className="text-2xl font-bold font-playfair tracking-wider text-brand-light md:mr-8 mb-2 md:mb-0">Iliana Nicolón</a>
-            <nav className="flex justify-center md:justify-start w-full md:w-auto space-x-6 md:space-x-10">
-              <NavLinksComponent />
-            </nav>
+        <div className="container mx-auto px-6 py-5 flex items-center justify-between">
+          {/* Izquierda: A.T.A.D. y descripción */}
+          <div className="flex flex-col items-start">
+            <span className="text-3xl font-bold font-playfair tracking-[0.2em] leading-none">A.T.A.D.</span>
+            <span className="block text-[10px] tracking-[0.1em] text-brand-light/80 uppercase whitespace-nowrap leading-none">Asistente de Tutores de Animales Domésticos</span>
           </div>
-          {/* Texto centrado debajo en desktop */}
-          <div className="w-full flex justify-center mt-2 md:mt-0">
-            <span className="block text-[10px] tracking-[0.1em] text-brand-light/80 uppercase whitespace-nowrap text-center">Asistente de Tutores de Animales Domésticos</span>
+          {/* Centro: Botonera */}
+          <nav className="hidden md:flex space-x-10 justify-center flex-1">
+            <NavLinksComponent />
+          </nav>
+          {/* Derecha: Iliana Nicolón */}
+          <div className="flex-1 flex justify-end">
+            <a href="#" onClick={(e) => handleNavClick(e, '#')} className="text-2xl font-bold font-playfair tracking-wider text-brand-light">Iliana Nicolón</a>
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-brand-light z-50 ml-4" aria-label="Toggle menu">
+              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
           </div>
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-brand-light z-50 absolute right-6 top-6" aria-label="Toggle menu">
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
         </div>
       </header>
       <div className={`fixed inset-0 z-40 bg-brand-dark/90 backdrop-blur-2xl transition-opacity duration-500 ease-in-out flex items-center justify-center md:hidden ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
