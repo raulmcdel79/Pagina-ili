@@ -1,7 +1,12 @@
 import React from 'react';
+import { useDocumentMeta } from '../hooks/useDocumentMeta';
 import { useInView } from '../hooks/useInView';
 
 const About: React.FC = () => {
+  useDocumentMeta(
+    'Sobre Ili | Asistente de Tutores de Animales Domésticos',
+    'Conoce la misión, visión y valores de Ili, tu asistente para tutores de animales domésticos. Información, consejos y comunidad para el bienestar animal.'
+  );
   const [ref, isInView] = useInView<HTMLElement>({ threshold: 0.2, triggerOnce: true });
 
   return (

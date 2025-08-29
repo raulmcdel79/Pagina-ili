@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDocumentMeta } from '../hooks/useDocumentMeta';
 import { useInView } from '../hooks/useInView';
 import { ArrowRight } from 'lucide-react';
 
@@ -46,6 +47,10 @@ const ArticleCard: React.FC<{ article: typeof articles[0]; delay: number; isInVi
 
 
 const Magazine: React.FC = () => {
+    useDocumentMeta(
+      'Revista | Asistenta de Tutores de Animales Domésticos',
+      'Artículos, novedades y recursos para tutores de animales domésticos. Descubre la revista de Ili con información útil y actualizada.'
+    );
     const [ref, isInView] = useInView<HTMLDivElement>({ threshold: 0.1, triggerOnce: true });
     const [titleRef, titleInView] = useInView<HTMLHeadingElement>({ threshold: 0.5, triggerOnce: true });
 
