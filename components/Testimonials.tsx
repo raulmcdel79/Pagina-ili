@@ -4,19 +4,22 @@ import { useInView } from '../hooks/useInView';
 
 const testimonials = [
   {
-    quote: "Iliana es increíble. Mi perro, que es muy tímido, la adora. Confianza plena y profesionalidad absoluta.",
-    author: "Ana G., Tutora de Rocky",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704d"
+    quote:
+      "Tras la partida de Puzzle entendí que sanar el corazón requiere el acompañamiento adecuado. Con Ili sentí guía, respeto y calidez en cada paso del duelo. Me ayudó a honrar a Puzzle con amor y a comprender mi proceso. Gracias por cada herramienta y por estar ahí.",
+    author: "Alba, Tutora de Puzzle",
+    avatar: "https://i.pravatar.cc/150?u=alba-puzzle"
   },
   {
-    quote: "El servicio de guardería es fantástico. Recibo fotos y actualizaciones durante el día, me da mucha tranquilidad.",
-    author: "Carlos M., Tutor de Luna",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704e"
+    quote:
+      "Con Luna, Ili nos acompañó desde la empatía y la escucha. Su apoyo profesional nos dio claridad, rutinas de despedida y recursos para transitar el dolor sin culpas. No es fácil, pero con su guía el amor se siente presente en cada recuerdo.",
+    author: "Tatiana, Tutora de Luna",
+    avatar: "https://i.pravatar.cc/150?u=tatiana-luna"
   },
   {
-    quote: "Nunca había visto a mi gato tan relajado con alguien que no fuera de la familia. A.T.A.D. es mi solución para los viajes.",
-    author: "Laura P., Tutora de Miso",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704f"
+    quote:
+      "Ili, mil gracias por la dedicatoria. Para mí ha sido un placer conocerte mejor y ver con qué amor has tratado a Bujo y cómo cuidas de todos los peluditos.",
+    author: "Carmen, Tutora de Bujo",
+    avatar: "https://i.pravatar.cc/150?u=carmen-bujo"
   }
 ];
 
@@ -90,7 +93,7 @@ const Testimonials: React.FC = () => {
               }}
             >
               <div className="flex flex-col items-center justify-center h-full">
-                <img src={testimonial.avatar} alt={testimonial.author} loading="lazy" className="w-20 h-20 rounded-full mb-6 border-4 border-white/10"/>
+                <img src={testimonial.avatar} alt={`Foto de ${testimonial.author}, tutor satisfecho`} loading="lazy" className="w-20 h-20 rounded-full mb-6 border-4 border-white/10"/>
                 <p className="text-xl md:text-2xl font-source-serif italic text-brand-light/90 leading-relaxed max-w-2xl">
                   "{testimonial.quote}"
                 </p>
