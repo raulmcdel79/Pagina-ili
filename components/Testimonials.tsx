@@ -1,25 +1,22 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
 const testimonials = [
   {
-    quote:
-      "Tras la partida de Puzzle entendí que sanar el corazón requiere el acompañamiento adecuado. Con Ili sentí guía, respeto y calidez en cada paso del duelo. Me ayudó a honrar a Puzzle con amor y a comprender mi proceso. Gracias por cada herramienta y por estar ahí.",
-    author: "Alba, Tutora de Puzzle",
-    avatar: "https://i.pravatar.cc/150?u=alba-puzzle"
+    quote: "He entrenado desde adolescente y siempre supe que para que el cuerpo luzca y se sienta lo mejor posible, la nutrición es la clave. Por eso empecé a investigar el mercado de suplementos. Eso me llevó a encontrar profesionales que colaboraron conmigo y ayudaron a desarrollar una serie de productos que se adaptan a diferentes tipos de cuerpo, objetivos y personalidades. En mi caso, el acompañamiento en el duelo animal con Ili fue fundamental para volver a mi rutina con Puzzle, desde el cuidado y el amor.",
+    author: "Alba, Tutora de Puzzle (Acompañamiento en Duelo Animal)",
+    avatar: "/imagenes/1.png"
   },
   {
-    quote:
-      "Con Luna, Ili nos acompañó desde la empatía y la escucha. Su apoyo profesional nos dio claridad, rutinas de despedida y recursos para transitar el dolor sin culpas. No es fácil, pero con su guía el amor se siente presente en cada recuerdo.",
+    quote: "He entrenado desde adolescente y siempre supe que para que el cuerpo luzca y se sienta lo mejor posible, la nutrición es la clave. Por eso empecé a investigar el mercado de suplementos. Eso me llevó a encontrar profesionales que colaboraron conmigo y ayudaron a desarrollar una serie de productos que se adaptan a diferentes tipos de cuerpo, objetivos y personalidades. Con Ili, sentí apoyo real en los días más difíciles con Luna.",
     author: "Tatiana, Tutora de Luna",
-    avatar: "https://i.pravatar.cc/150?u=tatiana-luna"
+    avatar: "/imagenes/2.png"
   },
   {
-    quote:
-      "Ili, mil gracias por la dedicatoria. Para mí ha sido un placer conocerte mejor y ver con qué amor has tratado a Bujo y cómo cuidas de todos los peluditos.",
+    quote: "Ili, mil gracias por la dedicatoria. Para mí ha sido un placer conocerte mejor y ver con qué amor has tratado a Bujo y cómo cuidas de todos los peluditos.",
     author: "Carmen, Tutora de Bujo",
-    avatar: "https://i.pravatar.cc/150?u=carmen-bujo"
+    avatar: "/imagenes/3.png"
   }
 ];
 
@@ -28,6 +25,8 @@ const Testimonials: React.FC = () => {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const minSwipeDistance = 50;
+  const slideRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const [containerHeight, setContainerHeight] = useState<number>(0);
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
@@ -41,6 +40,29 @@ const Testimonials: React.FC = () => {
     const slideInterval = setInterval(nextSlide, 7000);
     return () => clearInterval(slideInterval);
   }, [nextSlide]);
+
+  // Measure current slide height and set container height to avoid clipping content/avatar
+  const measureHeight = useCallback(() => {
+    const el = slideRefs.current[currentIndex];
+    if (el) {
+      // Use scrollHeight to capture full content height
+      const measured = el.scrollHeight;
+      const min = 420; // sensible minimum height
+      setContainerHeight(Math.max(measured, min));
+    }
+  }, [currentIndex]);
+
+  useEffect(() => {
+    measureHeight();
+  }, [currentIndex, measureHeight]);
+
+  useEffect(() => {
+    const onResize = () => measureHeight();
+    window.addEventListener('resize', onResize);
+    // measure once after mount
+    measureHeight();
+    return () => window.removeEventListener('resize', onResize);
+  }, [measureHeight]);
 
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);
@@ -78,7 +100,8 @@ const Testimonials: React.FC = () => {
       <div className="container mx-auto px-6 max-w-4xl text-center relative z-10">
         <h2 className="text-4xl md:text-5xl font-playfair mb-16">Historias que nos inspiran</h2>
         <div 
-          className="relative h-64 md:h-56 overflow-hidden cursor-grab active:cursor-grabbing"
+          className="relative overflow-x-hidden overflow-y-visible cursor-grab active:cursor-grabbing"
+          style={{ height: containerHeight ? `${containerHeight}px` : undefined }}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
@@ -86,15 +109,16 @@ const Testimonials: React.FC = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="absolute top-0 left-0 w-full h-full transition-all duration-700 ease-in-out"
+              ref={(el) => (slideRefs.current[index] = el)}
+              className="absolute top-0 left-0 w-full transition-all duration-700 ease-in-out"
               style={{ 
                 transform: `translateX(${(index - currentIndex) * 100}%)`,
                 opacity: index === currentIndex ? 1 : 0 
               }}
             >
-              <div className="flex flex-col items-center justify-center h-full">
+              <div className="flex flex-col items-center justify-center py-8 md:py-10">
                 <img src={testimonial.avatar} alt={`Foto de ${testimonial.author}, tutor satisfecho`} loading="lazy" className="w-20 h-20 rounded-full mb-6 border-4 border-white/10"/>
-                <p className="text-xl md:text-2xl font-source-serif italic text-brand-light/90 leading-relaxed max-w-2xl">
+                <p className="text-xl md:text-2xl font-source-serif italic text-brand-light/90 leading-relaxed max-w-3xl px-2 md:px-4">
                   "{testimonial.quote}"
                 </p>
                 <p className="mt-6 font-bold text-brand-accent tracking-widest text-sm uppercase">{testimonial.author}</p>
