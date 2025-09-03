@@ -18,6 +18,7 @@ import Modal from './components/Modal';
 import PrivacyPolicyContent from './components/legal/PrivacyPolicyContent';
 import LegalNoticeContent from './components/legal/LegalNoticeContent';
 import CookiesPolicyContent from './components/legal/CookiesPolicyContent';
+import CookieConsent from './components/CookieConsent';
 
 
 const App: React.FC = () => {
@@ -79,6 +80,7 @@ const App: React.FC = () => {
         <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
         <TopBanner />
         <Header />
+  <CookieConsent onOpenLegalModal={handleOpenLegalModal} />
         <main className="overflow-x-hidden">
           <Routes>
             <Route path="/" element={
