@@ -4,13 +4,47 @@ import { useDocumentMeta } from "../hooks/useDocumentMeta";
 
 const posts = {
   'bienvenida-blog': {
-    title: 'Bienvenida al Blog de ATAD',
-    date: '2025-08-29',
+    title: '🐾 Bienvenida al Blog de ATAD',
+    date: '2025-09-03',
     image: '/imagenes/1 revista.png.png',
-    description: 'Bienvenida al blog de ATAD: información, consejos y experiencias para tutores de animales domésticos. ¡Únete a nuestra comunidad!',
+    description: 'Descubrí el Blog de ATAD: un espacio creado por Ili para acompañar a tutores de animales con consejos prácticos, historias reales y herramientas para mejorar el vínculo humano-animal.',
     content: `
-¡Hola y bienvenido al blog de ATAD! Este espacio está dedicado a todos los tutores de animales domésticos que buscan información, consejos y experiencias reales para mejorar la vida de sus compañeros peludos.<br><br>
-Aquí encontrarás artículos útiles, historias inspiradoras y recursos para el bienestar animal y el acompañamiento emocional. ¡Gracias por acompañarnos en esta aventura!
+<header>
+  <p><em>Por Ili – 2025</em></p>
+</header>
+
+<section>
+  <h2>Un espacio para vos y tu compañero animal</h2>
+  <p>Bienvenido al Blog de <strong>ATAD – Asistente de Tutores de Animales Domésticos</strong>. Este no es un blog más: es un lugar para compartir, aprender y crecer junto a quienes sentimos que los animales son parte de nuestra familia.</p>
+  <p>Mi nombre es Ili, y desde hace años acompaño a tutores en el cuidado de sus perros, gatos y otros compañeros de vida. Sé lo que significa la duda, la culpa, el amor enorme y las ganas de hacerlo mejor. Este espacio nace para darte <strong>información clara, consejos prácticos y también contención emocional</strong>. Porque cuidar a un animal no es solo un acto de responsabilidad, es también un camino de transformación personal.</p>
+</section>
+
+<section>
+  <h2>¿Qué vas a encontrar en este blog?</h2>
+  <ul>
+    <li><strong>Artículos de cuidados esenciales:</strong> desde alimentación y paseos hasta salud preventiva y estimulación mental.</li>
+    <li><strong>Historias reales de tutores:</strong> porque compartir experiencias nos une y nos ayuda.</li>
+    <li><strong>Consejos de expertos:</strong> veterinarios, etólogos, psicólogos y profesionales que colaboran con ATAD.</li>
+    <li><strong>Reflexiones de Ili:</strong> sobre el vínculo humano-animal y cómo este nos cambia a nosotros también.</li>
+  </ul>
+  <p>La idea es que cada artículo te deje algo: un dato útil, una sonrisa, una reflexión o un empujoncito para mirar a tu compañero con otros ojos.</p>
+</section>
+
+<section>
+  <h2>Un lugar para la comunidad</h2>
+  <p>El Blog de ATAD no está pensado solo para leer, sino también para <strong>participar</strong>. Queremos escuchar tu voz: tus dudas, tus anécdotas, tus aprendizajes y hasta esas travesuras que hacen que la vida con animales sea tan única.</p>
+  <p>Podés enviarnos tus historias y fotos, y ser parte de esta comunidad que transforma la forma de cuidar y convivir con los animales.</p>
+</section>
+
+<section>
+  <h2>Cierre: Empezamos juntos este viaje</h2>
+  <p>Cuidar mejor y querer más. Ese es el motor de este blog. Ojalá encuentres en estas páginas la inspiración, la compañía y el conocimiento que necesitás para vivir con tu animal desde el amor y la conciencia.</p>
+  <p><em>Gracias por estar acá. Bienvenido a la familia ATAD.</em></p>
+</section>
+
+<footer>
+  <p><strong>Etiquetas:</strong> #blogATAD #cuidodemascotas #tutoresresponsables #bienestaranimal #ilicuida #vinculohumanoanimal</p>
+</footer>
     `,
   },
   'cuidados-esenciales-perro': {

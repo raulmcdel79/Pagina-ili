@@ -13,9 +13,9 @@ interface BlogPost {
 const posts: BlogPost[] = [
   {
     slug: 'bienvenida-blog',
-    title: 'Bienvenida al Blog de ATAD',
-    date: '2025-08-29',
-    summary: '¡Descubre el nuevo espacio de información, consejos y experiencias para tutores de animales domésticos!',
+  title: '🐾 Bienvenida al Blog de ATAD',
+  date: '2025-09-03',
+  summary: 'Descubrí el Blog de ATAD: un espacio creado por Ili para acompañar a tutores de animales con consejos prácticos, historias reales y herramientas para mejorar el vínculo humano-animal.',
     image: '/imagenes/1 revista.png.png',
   },
   {
