@@ -137,7 +137,15 @@ const Footer: React.FC<FooterProps> = ({ onOpenLegalModal }) => {
              <p>
                 &copy; 2025 iliana nicolon fiol. Todos los derechos reservados.
                 <br />
-                Creado por Bufit Impulsa.
+                <a
+                  href="https://www.bufitimpulsa.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-2 bg-brand-accent text-brand-dark font-bold px-3 py-1 rounded hover:bg-brand-light transition-colors"
+                  aria-label="Abrir sitio de Bufit Impulsa en una nueva pestaña"
+                >
+                  Creado por Bufit Impulsa
+                </a>
             </p>
         </div>
       </div>
