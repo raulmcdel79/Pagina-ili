@@ -20,9 +20,9 @@ const posts: BlogPost[] = [
   },
   {
     slug: 'cuidados-esenciales-perro',
-    title: 'Cuidados Esenciales para tu Perro',
-    date: '2025-08-29',
-    summary: 'Guía práctica sobre salud, higiene, ejercicio y bienestar para perros. Consejos para tutores responsables.',
+  title: '🐾 Cuidados Esenciales para tu Perro',
+  date: '2025-09-03',
+  summary: 'Guía completa de Ili con los cuidados esenciales para tu perro: higiene, vacunas, desparasitación, paseo, socialización, enriquecimiento, descanso, seguridad y primeros auxilios.',
     image: '/imagenes/cuidados-perro.png',
   },
   {

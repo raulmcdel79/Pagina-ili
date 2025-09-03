@@ -48,17 +48,56 @@ const posts = {
     `,
   },
   'cuidados-esenciales-perro': {
-    title: 'Cuidados Esenciales para tu Perro',
-    date: '2025-08-29',
+    title: '🐾 Cuidados Esenciales para tu Perro',
+    date: '2025-09-03',
     image: '/imagenes/cuidados-perro.png',
-    description: 'Guía práctica sobre salud, higiene, ejercicio y bienestar para perros. Consejos para tutores responsables.',
+    description: 'Guía completa de Ili con los cuidados esenciales para tu perro: higiene, vacunas, desparasitación, paseo, socialización, enriquecimiento, descanso, seguridad y primeros auxilios.',
     content: `
-Cuidar de un perro implica mucho más que alimentarlo. Aquí tienes los puntos clave para garantizar su bienestar:<br><br>
-<b>1. Alimentación equilibrada:</b> Proporciónale comida de calidad, adaptada a su edad y tamaño.<br>
-<b>2. Ejercicio diario:</b> Los paseos y el juego son fundamentales para su salud física y mental.<br>
-<b>3. Higiene y salud:</b> Baños regulares, cepillado, limpieza de oídos y visitas al veterinario.<br>
-<b>4. Socialización:</b> Permite que interactúe con otros perros y personas para evitar problemas de comportamiento.<br>
-<b>5. Amor y atención:</b> Dedícale tiempo y cariño, es esencial para su felicidad.
+<header>
+  <p><em>Por Ili – ATAD | Actualizado 2025</em></p>
+</header>
+
+<section>
+  <h2>Tu perro, tu compañero: lo básico que no puede faltar</h2>
+  <p>Cuidar bien a un perro no es cuestión de lujo, es cuestión de <strong>hábitos simples y constantes</strong>. Si recién adoptaste o querés repasar lo importante, acá va mi guía práctica, directa y amorosa. Vas a encontrar lo esencial de <strong>higiene, salud, paseo, socialización, descanso, seguridad y primeros auxilios</strong>. Para que vivan mejor vos y tu compa de cuatro patas.</p>
+</section>
+
+<section>
+  <h2>Higiene canina: limpio y cómodo, sin exagerar</h2>
+  <ul>
+    <li><strong>Baño:</strong> cada 4–8 semanas (según pelaje y estilo de vida). Usá <em>shampoo específico para perros</em>. Evitá bañarlo si está con frío o enfermo.</li>
+    <li><strong>Cepillado:</strong> 2–4 veces por semana. En razas de doble manto, mejor a diario en muda. Reduce pelos en casa y previene nudos.</li>
+    <li><strong>Oídos:</strong> revisá 1 vez por semana. Limpiá con solución ótica para perros y gasa; nunca metas hisopos a fondo.</li>
+    <li><strong>Dientes:</strong> 2–3 veces por semana con <em>pasta canina</em>. Sumá snacks dentales y juguetes masticables.</li>
+    <li><strong>Uñas:</strong> cortá cuando hagan “clic” al caminar. Si te da miedo, pedí a un profesional.</li>
+    <li><strong>Almohadillas y piel:</strong> hidratá si están resecas; chequeá irritaciones, picaduras o cuerpos extraños.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Salud preventiva: calendario al día y sin dramas</h2>
+  <h3>Vacunas y controles</h3>
+  <p>Seguí el <strong>calendario de vacunas</strong> que te indique tu veterinario y hacé un <strong>chequeo anual</strong> (dos al año en seniors). La prevención ahorra sustos y plata.</p>
+  <h3>Desparasitación</h3>
+  <ul>
+    <li><strong>Interna:</strong> cada 3 meses (frecuencia según zona y hábitos).</li>
+    <li><strong>Externa:</strong> pipetas/collares/isoxazolinas según recomendación. En verano y zonas de campo, no te cuelgues.</li>
+  </ul>
+  <p><strong>Control de peso:</strong> palpá costillas (deben sentirse sin estar marcadas) y mirá la cintura desde arriba. Un perro en peso vive mejor y más.</p>
+</section>
+
+<section>
+  <h2>Paseo, ejercicio y socialización: cuerpo y mente en movimiento</h2>
+  <ul>
+    <li><strong>Frecuencia:</strong> 2–3 paseos diarios. Uno de ellos, más largo y con olfato libre.</li>
+    <li><strong>Ritmo:</strong> no es maratón: dejalo oler. El olfato es su “red social”.</li>
+    <li><strong>Material:</strong> arnés cómodo (preferentemente tipo H/Y) y correa fija de 2–3 m. La extensible solo si sabés manejarla.</li>
+    <li><strong>Ejercicio:</strong> adaptá por edad/raza/clima. Alterná caminata, juegos de traer, búsqueda de premios y pequeños retos.</li>
+    <li><strong>Socialización:</strong> encuentros respetuosos, de a poco. No todos quieren saludar; mirá su lenguaje corporal.</li>
+  </ul>
+</section>
+
+<!-- Continúa: el usuario indicó más contenido (enriquecimiento, descanso, seguridad, primeros auxilios). Se puede ampliar cuando lo comparta. -->
     `,
   },
   'alimentacion-perros': {
