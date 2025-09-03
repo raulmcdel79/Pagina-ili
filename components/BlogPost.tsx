@@ -6,7 +6,7 @@ const posts = {
   'bienvenida-blog': {
     title: '🐾 Bienvenida al Blog de ATAD',
     date: '2025-09-03',
-    image: '/imagenes/1 revista.png.png',
+  image: '/imagenes/bienvenida-blog.png',
     description: 'Descubrí el Blog de ATAD: un espacio creado por Ili para acompañar a tutores de animales con consejos prácticos, historias reales y herramientas para mejorar el vínculo humano-animal.',
     content: `
 <header>
@@ -50,7 +50,7 @@ const posts = {
   'cuidados-esenciales-perro': {
     title: '🐾 Cuidados Esenciales para tu Perro',
     date: '2025-09-03',
-    image: '/imagenes/cuidados-perro.png',
+  image: '/imagenes/cuidados-perro.png',
     description: 'Guía completa de Ili con los cuidados esenciales para tu perro: higiene, vacunas, desparasitación, paseo, socialización, enriquecimiento, descanso, seguridad y primeros auxilios.',
     content: `
 <header>
@@ -103,7 +103,7 @@ const posts = {
   'alimentacion-perros': {
     title: '🐶 Alimentación para Perros: Tipos de Comida y Consejos',
     date: '2025-09-03',
-    image: '/imagenes/alimentacion-perros.png',
+  image: '/imagenes/alimentacion-perros.png',
     description: 'Descubrí los tipos de alimentación para perros (pienso, comida húmeda, dieta BARF y casera), consejos prácticos de nutrición y qué alimentos evitar. Guía Ili 2025.',
     content: `
 <header>
@@ -204,7 +204,7 @@ const BlogPost: React.FC = () => {
   if (!post) return <div className="text-center py-32 text-brand-light">Post no encontrado.</div>;
   return (
     <article className="max-w-3xl mx-auto py-24 px-4 bg-white/10 rounded-xl shadow-lg mt-16">
-      <img src={post.image} alt={post.title} className="w-full h-72 object-cover object-center rounded mb-8" />
+  <img src={post.image} alt={`${post.title} — imagen del artículo`} className="w-full h-72 object-cover object-center rounded mb-8" loading="lazy" />
       <h1 className="font-playfair text-4xl md:text-5xl text-brand-accent mb-4">{post.title}</h1>
       <p className="text-brand-light/70 mb-8">{post.date}</p>
       <div className="prose prose-invert max-w-none text-brand-light" dangerouslySetInnerHTML={{ __html: post.content }} />

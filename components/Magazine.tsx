@@ -6,17 +6,17 @@ import { ArrowRight } from 'lucide-react';
 const articles = [
   {
     title: 'Revista 1',
-    image: '/imagenes/1 revista.png.png',
-    link: ' https://heyzine.com/flip-book/65b63e29e5.html/',
+  image: '/imagenes/revista-1.png',
+    link: 'https://heyzine.com/flip-book/65b63e29e5.html/',
   },
   {
     title: 'Revista 2',
-    image: '/imagenes/2 revista.png.png',
+  image: '/imagenes/revista-2.png',
     link: 'https://heyzine.com/flip-book/71923e55b6.html/',
   },
   {
     title: 'Revista 3',
-    image: '/imagenes/3 revista.png.png',
+  image: '/imagenes/revista-3.png',
     link: 'https://heyzine.com/flip-book/1b213e2e74.html/',
   },
 ];
@@ -29,8 +29,14 @@ const ArticleCard: React.FC<{ article: typeof articles[0]; delay: number; isInVi
     <div className="w-full" style={{ aspectRatio: '4/5' }}>
       <img
         src={article.image}
-        alt={article.title}
+        alt={`Portada ${article.title} — Revista T.E.O. de ATA-D`}
         className="w-full h-full object-cover object-center"
+        loading="lazy"
+        onError={(e) => {
+          const img = e.currentTarget as HTMLImageElement;
+          img.onerror = null;
+          img.src = '/imagenes/revista-1.png';
+        }}
         style={{ aspectRatio: '4/5', display: 'block' }}
       />
     </div>

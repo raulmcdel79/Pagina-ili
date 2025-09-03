@@ -16,7 +16,7 @@ const posts: BlogPost[] = [
   title: '🐾 Bienvenida al Blog de ATAD',
   date: '2025-09-03',
   summary: 'Descubrí el Blog de ATAD: un espacio creado por Ili para acompañar a tutores de animales con consejos prácticos, historias reales y herramientas para mejorar el vínculo humano-animal.',
-    image: '/imagenes/1 revista.png.png',
+  image: '/imagenes/bienvenida-blog.png',
   },
   {
     slug: 'cuidados-esenciales-perro',
@@ -47,7 +47,17 @@ const BlogList: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
           {posts.map(post => (
             <Link to={`/blog/${post.slug}`} key={post.slug} className="group rounded-xl overflow-hidden shadow-lg bg-white/10 hover:bg-white/20 transition-all flex flex-col">
-              <img src={post.image} alt={post.title} className="w-full h-60 object-cover object-center" />
+              <img
+                src={post.image}
+                alt={`${post.title} — portada del post en el blog de ATA-D`}
+                className="w-full h-60 object-cover object-center"
+                loading="lazy"
+                onError={(e) => {
+                  const img = e.currentTarget as HTMLImageElement;
+                  img.onerror = null;
+                  img.src = '/imagenes/revista-1.png';
+                }}
+              />
               <div className="p-6 flex-1 flex flex-col">
                 <h3 className="font-playfair text-2xl text-brand-light mb-2 group-hover:text-brand-accent transition-colors">{post.title}</h3>
                 <p className="text-brand-light/70 text-sm mb-4">{post.date}</p>

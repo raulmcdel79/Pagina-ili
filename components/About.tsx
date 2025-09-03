@@ -15,7 +15,7 @@ const About: React.FC = () => {
         <div className="grid md:grid-cols-5 gap-12 items-center">
           <div className={`md:col-span-2 transition-all duration-1000 ease-out ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <img 
-              src="/imagenes/sobre-ili.png.png" 
+              src="/imagenes/sobre-ili.png" 
               alt="Iliana Nicolón" 
               loading="lazy"
               className="w-full h-auto object-cover aspect-[4/5]"
@@ -42,8 +42,8 @@ const About: React.FC = () => {
               </p>
             </div>
             <div className="flex flex-row items-center justify-center mt-8 gap-8">
-              <img src="/imagenes/logo.png" alt="Logo" className="h-28" />
-              <img src="/imagenes/firma.png" alt="Firma Iliana Nicolón" className="h-40" />
+              <img src="/imagenes/logo.png" alt="Logo de ATA-D (Asistente de Tutores de Animales Domésticos)" className="h-28" loading="lazy" />
+              <img src="/imagenes/firma.png" alt="Firma manuscrita de Iliana Nicolón" className="h-40" loading="lazy" />
             </div>
           </div>
         </div>
