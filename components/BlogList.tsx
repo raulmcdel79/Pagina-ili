@@ -27,9 +27,9 @@ const posts: BlogPost[] = [
   },
   {
     slug: 'alimentacion-perros',
-    title: 'Alimentación para Perros: Tipos de Comida y Consejos',
-    date: '2025-08-29',
-    summary: 'Todo sobre alimentación canina: pienso, comida húmeda, dieta BARF y recomendaciones para una nutrición saludable.',
+  title: '🐶 Alimentación para Perros: Tipos de Comida y Consejos',
+  date: '2025-09-03',
+  summary: 'Descubrí los tipos de alimentación para perros (pienso, comida húmeda, dieta BARF y casera), consejos prácticos de nutrición y qué alimentos evitar. Guía Ili 2025.',
     image: '/imagenes/alimentacion-perros.png',
   },
 ];

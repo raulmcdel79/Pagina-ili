@@ -28,16 +28,94 @@ Cuidar de un perro implica mucho más que alimentarlo. Aquí tienes los puntos c
     `,
   },
   'alimentacion-perros': {
-    title: 'Alimentación para Perros: Tipos de Comida y Consejos',
-    date: '2025-08-29',
+    title: '🐶 Alimentación para Perros: Tipos de Comida y Consejos',
+    date: '2025-09-03',
     image: '/imagenes/alimentacion-perros.png',
-    description: 'Todo sobre alimentación canina: pienso, comida húmeda, dieta BARF y recomendaciones para una nutrición saludable.',
+    description: 'Descubrí los tipos de alimentación para perros (pienso, comida húmeda, dieta BARF y casera), consejos prácticos de nutrición y qué alimentos evitar. Guía Ili 2025.',
     content: `
-La alimentación es clave para la salud de tu perro. Conoce las opciones principales:<br><br>
-<b>Pienso seco:</b> Práctico y equilibrado, ideal para la mayoría de los perros.<br>
-<b>Comida húmeda:</b> Más palatable, pero suele contener más agua y puede ser menos saciante.<br>
-<b>Dieta BARF:</b> Basada en alimentos crudos y naturales, requiere asesoramiento profesional.<br>
-<b>Consejos:</b> Consulta siempre con tu veterinario antes de cambiar la dieta, ofrece agua fresca y evita alimentos peligrosos como chocolate, uvas o cebolla.
+<header>
+  <p><em>Por Ili – Actualizado 2025</em></p>
+</header>
+
+<section>
+  <h2>La comida: el corazón de su bienestar</h2>
+  <p>La forma en que alimentás a tu perro hace toda la diferencia. No es solo llenar el plato: es darle salud, energía y calidad de vida. Hoy hay mil opciones y capaz que te mareás entre tanto pienso, latitas, dietas crudas o comida casera. Acá te cuento lo que necesitás saber para elegir con cabeza y con amor.</p>
+</section>
+
+<section>
+  <h2>Tipos de comida para perros</h2>
+
+  <h3>1. Pienso seco (el clásico de siempre)</h3>
+  <ul>
+    <li><strong>Ventajas:</strong> práctico, rinde más, se conserva bien y viene balanceado.</li>
+    <li><strong>Extra:</strong> ayuda a limpiar los dientes.</li>
+    <li><strong>Contras:</strong> algunos perros lo encuentran poco apetecible; la calidad varía mucho entre marcas.</li>
+  </ul>
+  <p><strong>Tendencia 2025:</strong> piensos grain free, hipoalergénicos o naturales para perros adultos y senior.</p>
+
+  <h3>2. Comida húmeda (la latita de toda la vida)</h3>
+  <ul>
+    <li><strong>Ventajas:</strong> más rica de sabor, ideal para perros mañosos o viejitos.</li>
+    <li><strong>Extra:</strong> aporta agua y ayuda a la hidratación.</li>
+    <li><strong>Contras:</strong> sale más caro, no llena tanto y una vez abierta debe refrigerarse.</li>
+  </ul>
+
+  <h3>3. Dieta BARF (cruda y natural)</h3>
+  <ul>
+    <li><strong>Ventajas:</strong> carne cruda, huesos carnosos, verduras… más parecido a lo que comería un perro en la naturaleza.</li>
+    <li><strong>Extra:</strong> mejora el pelo, la digestión y la vitalidad.</li>
+    <li><strong>Contras:</strong> requiere supervisión profesional y mucha higiene para evitar bacterias.</li>
+  </ul>
+  <p><strong>Tendencia:</strong> menús BARF preparados y congelados, siempre guiados por un veterinario.</p>
+
+  <h3>4. Comida casera (hecha con tus manos)</h3>
+  <ul>
+    <li><strong>Ventajas:</strong> controlás vos la calidad y se adapta a alergias o problemas de salud.</li>
+    <li><strong>Contras:</strong> lleva más tiempo y sin guía puede haber carencias nutricionales.</li>
+  </ul>
+  <p><strong>Lo más buscado:</strong> recetas caseras para perros alérgicos o con sobrepeso.</p>
+</section>
+
+<section>
+  <h2>🚫 Alimentos prohibidos para perros</h2>
+  <ul>
+    <li>Chocolate</li>
+    <li>Uvas y pasas</li>
+    <li>Cebolla y ajo</li>
+    <li>Café y té</li>
+    <li>Huesos cocidos</li>
+    <li>Aguacate</li>
+  </ul>
+  <p>Un descuido puede terminar en urgencia veterinaria. Ojo con eso.</p>
+</section>
+
+<section>
+  <h2>Consejos prácticos de Ili 🐾</h2>
+  <ol>
+    <li>Consultá con tu veterinario antes de cambiar la dieta.</li>
+    <li>Mantené horarios fijos de comida.</li>
+    <li>Ajustá las raciones a su edad, tamaño y actividad.</li>
+    <li>Agua fresca siempre disponible.</li>
+    <li>Reducí los snacks industriales; mejor premios naturales.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>FAQ: Preguntas frecuentes</h2>
+  <p><strong>¿Puedo mezclar pienso seco y comida húmeda?</strong><br>Sí, pero ajustá cantidades para evitar sobrepeso.</p>
+  <p><strong>¿La dieta BARF es mejor?</strong><br>Depende del perro, de la calidad de los ingredientes y de la supervisión profesional.</p>
+  <p><strong>¿Qué pasa si mi perro solo quiere comida casera?</strong><br>Se puede, pero siempre con asesoramiento veterinario.</p>
+</section>
+
+<section>
+  <h2>Cierre: elegí con amor y conciencia</h2>
+  <p>No hay una receta mágica. Lo que sí hay es observación, compromiso y ganas de dar lo mejor. Cada perro es único, y su comida también debería serlo.</p>
+  <p><em>En Ili creemos que alimentar bien es una forma de amar mejor.</em></p>
+</section>
+
+<footer>
+  <p><strong>Etiquetas:</strong> #alimentacionperros #nutricioncanina #dietabarf #pienso #perrosfelices #ilicuida #tutoresresponsables</p>
+</footer>
     `,
   },
 };
