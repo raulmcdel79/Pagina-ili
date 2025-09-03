@@ -141,7 +141,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenLegalModal }) => {
                   href="https://www.bufitimpulsa.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mt-2 bg-brand-accent text-brand-dark font-bold px-3 py-1 rounded hover:bg-brand-light transition-colors"
+                  className="inline-block mt-2 text-brand-light/70 hover:text-brand-light transition-colors"
                   aria-label="Abrir sitio de Bufit Impulsa en una nueva pestaña"
                 >
                   Creado por Bufit Impulsa
