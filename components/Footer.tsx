@@ -89,6 +89,23 @@ const Footer: React.FC<FooterProps> = ({ onOpenLegalModal }) => {
               <li><button onClick={() => onOpenLegalModal('privacy')} className="hover:text-brand-light transition-colors w-full text-center sm:text-left">Política de Privacidad</button></li>
               <li><button onClick={() => onOpenLegalModal('legal')} className="hover:text-brand-light transition-colors w-full text-center sm:text-left">Aviso Legal</button></li>
               <li><button onClick={() => onOpenLegalModal('cookies')} className="hover:text-brand-light transition-colors w-full text-center sm:text-left">Cookies</button></li>
+              <li>
+                <button
+                  onClick={() => {
+                    try {
+                      // Borrar consentimiento para forzar reapertura del banner de cookies
+                      localStorage.removeItem('atad_cookie_consent');
+                      // Emitir un evento sencillo por si el componente escucha cambios de storage en el futuro
+                      window.dispatchEvent(new StorageEvent('storage', { key: 'atad_cookie_consent' }));
+                    } catch {}
+                    // Desplazar un poco la pantalla y forzar re-render
+                    window.scrollTo({ top: window.scrollY + 1 });
+                  }}
+                  className="hover:text-brand-light transition-colors w-full text-center sm:text-left"
+                >
+                  Preferencias de cookies
+                </button>
+              </li>
             </ul>
           </div>
 
