@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
   return (
                 <section 
                     className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-cover bg-center bg-fixed"
-                    style={{ backgroundImage: "url('/imagenes/foto-portada.png')" }}
+                    style={{ backgroundImage: "url('/imagenes/foto-portada.png?v=2')" }}
                 >
         <div className="absolute inset-0 bg-brand-dark/60"></div>
         <div className="relative z-10">
