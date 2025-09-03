@@ -20,14 +20,14 @@ const posts: BlogPost[] = [
   },
   {
     slug: 'cuidados-esenciales-perro',
-  title: '🐾 Cuidados Esenciales para tu Perro',
+  title: '🐶 Cuidados Esenciales para tu Perro',
   date: '2025-09-03',
   summary: 'Guía completa de Ili con los cuidados esenciales para tu perro: higiene, vacunas, desparasitación, paseo, socialización, enriquecimiento, descanso, seguridad y primeros auxilios.',
     image: '/imagenes/cuidados-perro.png',
   },
   {
     slug: 'alimentacion-perros',
-  title: '🐶 Alimentación para Perros: Tipos de Comida y Consejos',
+  title: '🦴 Alimentación para Perros: Tipos de Comida y Consejos',
   date: '2025-09-03',
   summary: 'Descubrí los tipos de alimentación para perros (pienso, comida húmeda, dieta BARF y casera), consejos prácticos de nutrición y qué alimentos evitar. Guía Ili 2025.',
     image: '/imagenes/alimentacion-perros.png',

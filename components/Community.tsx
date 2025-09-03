@@ -37,14 +37,14 @@ const Community: React.FC = () => {
             <ul className="flex items-center justify-center shrink-0 [&_li]:mx-8 animate-infinite-scroll group-hover:[animation-play-state:paused]">
                 {dogImages.map((src, index) => (
                     <li key={`${src}-${index}`} className="opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105">
-                        <img src={src} alt={`Compañero ${index + 1}`} loading="lazy" className="h-20 w-20 rounded-full object-cover object-center border-4 border-white/10" />
+                        <img src={src} alt={`Tutor o mascota ${index + 1} — comunidad ATA-D`} loading="lazy" className="h-20 w-20 rounded-full object-cover object-center border-4 border-white/10" />
                     </li>
                 ))}
             </ul>
             <ul className="flex items-center justify-center shrink-0 [&_li]:mx-8 animate-infinite-scroll group-hover:[animation-play-state:paused]" aria-hidden="true">
                 {dogImages.map((src, index) => (
                     <li key={`${src}-${index}-clone`} className="opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105">
-                        <img src={src} alt={`Compañero ${index + 1}`} loading="lazy" className="h-20 w-20 rounded-full object-cover object-center border-4 border-white/10" />
+                        <img src={src} alt={`Tutor o mascota ${index + 1} — comunidad ATA-D`} loading="lazy" className="h-20 w-20 rounded-full object-cover object-center border-4 border-white/10" />
                     </li>
                 ))}
             </ul>

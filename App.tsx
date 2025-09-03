@@ -24,8 +24,9 @@ import CookieConsent from './components/CookieConsent';
 const App: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [legalModal, setLegalModal] = useState<string | null>(null);
-  // Control de visibilidad de reseñas: usa VITE_SHOW_TESTIMONIALS=true para mostrarlas
-  const showTestimonials = (import.meta as any).env?.VITE_SHOW_TESTIMONIALS === 'true';
+  // Control de visibilidad de reseñas: por defecto visibles salvo que se fuerce a 'false'
+  const envShow = (import.meta as any).env?.VITE_SHOW_TESTIMONIALS;
+  const showTestimonials = envShow === undefined ? true : String(envShow) === 'true';
 
   useEffect(() => {
     const handleScroll = () => {
