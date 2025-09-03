@@ -18,3 +18,13 @@ View your app in AI Studio: https://ai.studio/apps/drive/1A4cHbCzcWqOKnAzZYiG53G
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+### Toggle Testimonials (Reviews)
+
+By default, testimonials are hidden. To show them, set the env var:
+
+```
+VITE_SHOW_TESTIMONIALS=true
+```
+
+On Vercel, add it in Project Settings > Environment Variables.

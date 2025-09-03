@@ -23,6 +23,8 @@ import CookiesPolicyContent from './components/legal/CookiesPolicyContent';
 const App: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [legalModal, setLegalModal] = useState<string | null>(null);
+  // Control de visibilidad de reseñas: usa VITE_SHOW_TESTIMONIALS=true para mostrarlas
+  const showTestimonials = (import.meta as any).env?.VITE_SHOW_TESTIMONIALS === 'true';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,7 +89,7 @@ const App: React.FC = () => {
                 <Magazine />
                 <Booking />
                 <About />
-                <Testimonials />
+                {showTestimonials && <Testimonials />}
                 <Community />
                 <Contact />
               </>
