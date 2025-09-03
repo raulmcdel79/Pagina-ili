@@ -4,12 +4,12 @@ import { useInView } from '../hooks/useInView';
 
 const testimonials = [
   {
-    quote: "He entrenado desde adolescente y siempre supe que para que el cuerpo luzca y se sienta lo mejor posible, la nutrición es la clave. Por eso empecé a investigar el mercado de suplementos. Eso me llevó a encontrar profesionales que colaboraron conmigo y ayudaron a desarrollar una serie de productos que se adaptan a diferentes tipos de cuerpo, objetivos y personalidades. En mi caso, el acompañamiento en el duelo animal con Ili fue fundamental para volver a mi rutina con Puzzle, desde el cuidado y el amor.",
+    quote: ".",
     author: "Alba, Tutora de Puzzle (Acompañamiento en Duelo Animal)",
     avatar: "/imagenes/1.png"
   },
   {
-    quote: "He entrenado desde adolescente y siempre supe que para que el cuerpo luzca y se sienta lo mejor posible, la nutrición es la clave. Por eso empecé a investigar el mercado de suplementos. Eso me llevó a encontrar profesionales que colaboraron conmigo y ayudaron a desarrollar una serie de productos que se adaptan a diferentes tipos de cuerpo, objetivos y personalidades. Con Ili, sentí apoyo real en los días más difíciles con Luna.",
+    quote: ".",
     author: "Tatiana, Tutora de Luna",
     avatar: "/imagenes/2.png"
   },
