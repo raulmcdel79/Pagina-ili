@@ -8,13 +8,13 @@ const DueloAnimal: React.FC = () => (
     <p className="mb-6 text-brand-accent font-semibold">Por ili – A.D.A. (Acompañante en el Duelo Animal)</p>
     <p className="mb-4">La partida de mi compañero peludo fue uno de los momentos más difíciles de mi vida. Sin embargo, ese dolor me llevó a descubrir una vocación: acompañar a otras personas que atraviesan el duelo por sus animales de compañía. Gracias a la formación como A.D.A. bajo la guía de mi mentora Laura Vidal —un ser único que me enseñó a mirar la vida y la muerte con otros ojos— hoy puedo ofrecerte un espacio seguro, respetuoso y libre de juicios para transitar este proceso.</p>
     <p className="mb-4">No importa si tu compañero fue un perro, gato, conejo, loro, ratón, lagartija o pez. Lo que realmente importa es el vínculo que compartiste con él, el amor que le diste y el vacío que ha dejado su partida.</p>
-    <h2 className="text-2xl font-bold mt-8 mb-2">🌿 ¿Qué ofrezco?</h2>
+    <h2 className="text-2xl font-bold mt-8 mb-2">¿Qué ofrezco?</h2>
     <p className="mb-4">Un servicio personalizado de acompañamiento emocional para personas que han perdido a sus animales de compañía. Mi enfoque se basa en la escucha activa, la empatía y el respeto profundo por el vínculo humano-animal.</p>
     <div className="mt-10 mb-8 flex flex-col items-center">
       <div className="w-full max-w-xl bg-brand-dark/80 rounded-2xl shadow-lg border border-brand-accent/30 p-6 md:p-8 flex flex-col items-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-brand-accent mb-2 flex items-center gap-2">
-          <span role="img" aria-label="calendario">📅</span> Programa de Acompañamiento
-        </h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-brand-accent mb-2">
+              Programa de Acompañamiento
+            </h2>
         <div className="text-center text-brand-light/90 mb-4">
           <p className="text-lg mb-2">Un proceso sensible y personalizado para acompañarte en el duelo por tu animal querido.</p>
         </div>
@@ -27,7 +27,7 @@ const DueloAnimal: React.FC = () => (
           </div>
         </div>
         <div className="w-full mt-6">
-          <h3 className="text-lg font-semibold text-brand-accent mb-2 flex items-center gap-2"><span role="img" aria-label="brújula">🧭</span> Estructura de las sesiones</h3>
+              <h3 className="text-lg font-semibold text-brand-accent mb-2">Estructura de las sesiones</h3>
           <ol className="list-decimal list-inside pl-4 text-brand-light/90 space-y-3">
             <li>
               <span className="font-bold">Sesión 1:</span> Primer contacto y exploración emocional
@@ -65,38 +65,7 @@ const DueloAnimal: React.FC = () => (
         </div>
       </div>
     </div>
-    <h2 className="text-2xl font-bold mt-8 mb-2">🧭 Estructura de las sesiones</h2>
-    <ol className="mb-4 list-decimal list-inside pl-4">
-      <li><strong>Sesión 1:</strong> Primer contacto y exploración emocional
-        <ul className="list-disc list-inside pl-4">
-          <li>Crear un espacio seguro y romper el hielo</li>
-          <li>Conocer la historia del vínculo: nombre, edad, especie del animal, tipo de relación, circunstancias de la pérdida</li>
-          <li>Escucha activa y planificación del acompañamiento</li>
-        </ul>
-      </li>
-      <li><strong>Sesión 2:</strong> Validación del duelo y expresión emocional
-        <ul className="list-disc list-inside pl-4">
-          <li>Reconocer y validar el dolor</li>
-          <li>Desmontar creencias limitantes sobre el duelo animal</li>
-          <li>Técnicas de expresión emocional (escritura, visualización, diálogo simbólico)</li>
-        </ul>
-      </li>
-      <li><strong>Sesión 3:</strong> Reconstrucción del vínculo y resignificación
-        <ul className="list-disc list-inside pl-4">
-          <li>Recordar momentos significativos</li>
-          <li>Honrar el legado emocional del animal</li>
-          <li>Transformar el dolor en amor a través de rituales simbólicos y cartas de despedida</li>
-        </ul>
-      </li>
-      <li><strong>Sesión 4:</strong> Cierre y proyección hacia el futuro
-        <ul className="list-disc list-inside pl-4">
-          <li>Evaluar el proceso emocional</li>
-          <li>Reforzar recursos personales</li>
-          <li>Ofrecer herramientas para continuar el duelo de forma autónoma</li>
-        </ul>
-      </li>
-    </ol>
-    <h2 className="text-2xl font-bold mt-8 mb-2">💬 Mi experiencia</h2>
+    <h2 className="text-2xl font-bold mt-8 mb-2"> Mi experiencia</h2>
     <p className="mb-4">Acompañar a personas en duelo ha sido una de las vivencias más gratificantes de mi vida. Ver cómo alguien llega destrozado a la primera sesión y, poco a poco, empieza a ver la luz, a sentirse mejor, a transformar el dolor en amor… es profundamente conmovedor. El duelo animal suele ser incomprendido por el entorno, pero aquí encontrarás un espacio donde tu dolor será respetado, validado y cuidado.</p>
     <div className="mt-8 flex flex-col md:flex-row md:items-center gap-4">
       <a href="mailto:info@iliadad.com" className="px-6 py-3 rounded bg-brand-accent text-brand-dark font-semibold text-lg shadow hover:opacity-90 transition">Solicitar información o reservar sesión</a>
