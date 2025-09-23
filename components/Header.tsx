@@ -128,7 +128,7 @@ const Header: React.FC = () => {
         <div className="container mx-auto px-6 py-5 flex items-center justify-between">
           {/* Izquierda: Iliana Nicolón */}
           <div className="flex-1 flex justify-start">
-            <a href="#" onClick={(e) => handleNavClick(e, '#')} className="text-2xl font-bold font-playfair tracking-wider text-brand-light">Iliana Nicolón</a>
+            <Link to="/" className="text-2xl font-bold font-playfair tracking-wider text-brand-light">Iliana Nicolón</Link>
           </div>
           {/* Centro: Botonera */}
           <nav className="hidden md:flex space-x-10 justify-center flex-1">
