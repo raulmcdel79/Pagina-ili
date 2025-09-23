@@ -82,7 +82,6 @@ const Header: React.FC = () => {
   const navLinks = [
     { name: 'Servicios', href: '#servicios' },
     { name: 'Revista T.E.O.', href: '#revista' },
-    { name: 'Agenda', href: '#agenda' },
     { name: 'Duelo Animal', href: '/duelo-animal' },
     { name: 'Sobre Ili', href: '#sobre-ili' },
     { name: 'Blog', href: '/blog', isBlog: true },
