@@ -134,7 +134,7 @@ const Header: React.FC = () => {
           <nav className="hidden md:flex space-x-10 justify-center flex-1">
             <NavLinksComponent />
           </nav>
-            {/* Derecha: A.T.A.D. centrado encima de la descripción dividida en dos líneas */}
+            {/* Derecha:A.T.A.D.centrado encima de la descripción dividida en dos líneas */}
             <div className="flex-1 flex flex-col items-end">
               <div className="flex flex-col items-center max-w-[140px] md:max-w-none">
                 <span className="text-3xl font-bold font-playfair tracking-[0.2em] leading-none text-center">A.T.A.D.</span>
