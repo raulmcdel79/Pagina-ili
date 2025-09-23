@@ -57,6 +57,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenLegalModal }) => {
     { name: 'Servicios', href: '#servicios' },
     { name: 'Revista T.E.O.', href: '#revista' },
     { name: 'Agenda', href: '#agenda' },
+    { name: 'Duelo Animal', href: '/duelo-animal' },
     { name: 'Sobre Ili', href: '#sobre-ili' },
   ];
 

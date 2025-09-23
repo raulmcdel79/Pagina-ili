@@ -18,7 +18,9 @@ import Modal from './components/Modal';
 import PrivacyPolicyContent from './components/legal/PrivacyPolicyContent';
 import LegalNoticeContent from './components/legal/LegalNoticeContent';
 import CookiesPolicyContent from './components/legal/CookiesPolicyContent';
+
 import CookieConsent from './components/CookieConsent';
+import DueloAnimal from './components/DueloAnimal';
 
 
 const App: React.FC = () => {
@@ -85,6 +87,14 @@ const App: React.FC = () => {
             <Route path="/" element={
               <>
                 <Hero />
+                {/* Banner duelo animal */}
+                <div className="w-full flex justify-center bg-brand-accent/90 py-4 px-2 md:px-0 shadow-lg animate-fade-in">
+                  <a href="/duelo-animal" className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-brand-dark font-semibold text-lg md:text-xl hover:underline">
+                    <span role="img" aria-label="huella">🐾</span>
+                    <span>Acompañamiento en el duelo por la pérdida de tu animal</span>
+                    <span className="hidden md:inline-block bg-brand-dark/10 rounded px-3 py-1 text-sm font-normal ml-2">Nuevo</span>
+                  </a>
+                </div>
                 <StatsStrip />
                 <Services />
                 <Magazine />
@@ -95,6 +105,7 @@ const App: React.FC = () => {
                 <Contact />
               </>
             } />
+            <Route path="/duelo-animal" element={<DueloAnimal />} />
             <Route path="/blog" element={<BlogList />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
           </Routes>
