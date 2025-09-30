@@ -4,19 +4,24 @@ import { useInView } from '../hooks/useInView';
 
 const testimonials = [
   {
-    quote: ".",
+    quote: "Iliana es maravillosa y tiene un corazón enorme. Me ayudó a superar el duelo por la pérdida de mi perro. Después de tres meses de profunda tristeza, encontré en ella un apoyo incondicional. Desde el primer momento, me sentí en un lugar seguro donde pude abrirme y ser comprendida como nunca antes. Iliana me dio herramientas y una nueva perspectiva sobre la muerte que me permitieron gestionar mejor mis emociones. Aunque el camino es largo, gracias a ella he salido del pozo en el que me encontraba.",
     author: "Alba, Tutora de Puzzle (Acompañamiento en Duelo Animal)",
-    avatar: "/imagenes/1.png"
+    avatar: "/imagenes/puzzle.png"
   },
   {
-    quote: ".",
+    quote: "Iliana ha sido alguien muy especial para nuestra familia desde que llegamos a Valencia, cuidando de nuestra perrita Lunita con total amor y dedicación. Cada vez que Luna se queda con ella, la llena de amor, cuidados y mimos. Nosotros nos sentimos felices y tranquilos al recibir constantemente fotos y vídeos de lo bien que está. Estamos profundamente agradecidos por su increíble trabajo y por todo el cariño que le da.",
     author: "Tatiana, Tutora de Luna",
-    avatar: "/imagenes/2.png"
+    avatar: "/imagenes/Luna.png"
   },
   {
     quote: "Ili, mil gracias por la dedicatoria. Para mí ha sido un placer conocerte mejor y ver con qué amor has tratado a Bujo y cómo cuidas de todos los peluditos.",
     author: "Carmen, Tutora de Bujo",
     avatar: "/imagenes/3.png"
+  },
+  {
+    quote: "Iliana fue un apoyo fundamental en el momento más difícil. Nuestra perra de 14 años y medio sufría demencia y dolor. Estábamos agotados y no éramos conscientes de la gravedad de la situación. Gracias a la comprensión y la ayuda de Iliana, entendimos que lo más compasivo era dejarla ir. Su guía fue esencial para tomar la decisión correcta y siempre le estaremos agradecidos.",
+    author: "Kathy, Tutora de Billy",
+    avatar: "/imagenes/Billy.png"
   }
 ];
 
@@ -41,13 +46,11 @@ const Testimonials: React.FC = () => {
     return () => clearInterval(slideInterval);
   }, [nextSlide]);
 
-  // Measure current slide height and set container height to avoid clipping content/avatar
   const measureHeight = useCallback(() => {
     const el = slideRefs.current[currentIndex];
     if (el) {
-      // Use scrollHeight to capture full content height
       const measured = el.scrollHeight;
-      const min = 420; // sensible minimum height
+      const min = 420;
       setContainerHeight(Math.max(measured, min));
     }
   }, [currentIndex]);
@@ -59,7 +62,6 @@ const Testimonials: React.FC = () => {
   useEffect(() => {
     const onResize = () => measureHeight();
     window.addEventListener('resize', onResize);
-    // measure once after mount
     measureHeight();
     return () => window.removeEventListener('resize', onResize);
   }, [measureHeight]);
