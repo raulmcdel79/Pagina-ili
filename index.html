@@ -4,7 +4,7 @@
   <link rel="manifest" href="/manifest.webmanifest" />
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- CSP se gestiona desde vercel.json -->
+  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; img-src * data:; font-src *;" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cuidado de perros y gatos en Valencia | Residencia, Paseos y Duelo Animal – A.T.A.D.</title>
@@ -67,11 +67,40 @@
   </script>
   <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="stylesheet" href="/index.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
-  <!-- Tailwind config está en tailwind.config.js -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-dark': '#5c4942',
+            'brand-accent': '#f8a9a4',
+            'brand-light': '#dbc9c4',
+          },
+          fontFamily: {
+            'playfair': ['"Playfair Display"', 'serif'],
+            'libre-baskerville': ['"Libre Baskerville"', 'serif'],
+            'lora': ['Lora', 'serif'],
+            'source-serif': ['"Source Serif Pro"', 'serif'],
+            'amatic': ['"Amatic SC"', 'cursive'],
+          },
+          animation: {
+            'infinite-scroll': 'infinite-scroll 80s linear infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            'infinite-scroll': {
+              from: { transform: 'translateX(0)' },
+              to: { transform: 'translateX(-100%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
 <style>
   html {
     scroll-behavior: smooth;
