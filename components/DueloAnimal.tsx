@@ -3,13 +3,29 @@ import React from "react";
 import WhatsAppInfo from "./WhatsAppInfo";
 
 const DueloAnimal: React.FC = () => (
-  <section
-    className="relative w-full min-h-[600px] py-24 md:py-40 bg-cover bg-center overflow-hidden text-brand-light flex items-center justify-center"
-    style={{ backgroundImage: "url('/imagenes/muerte-duelo-animal-perdida-mascota.png')" }}
-  >
-    {/* Overlay marrón degradado con transparencia */}
-    <div className="absolute inset-0 z-0 pointer-events-none" style={{background: 'linear-gradient(180deg, rgba(123,74,29,0.7) 0%, rgba(123,74,29,0.5) 60%, rgba(0,0,0,0.4) 100%)'}}></div>
-  <div className="relative z-10 max-w-3xl mx-auto px-4 w-full">
+  <section className="w-full bg-brand-dark/95 py-0 md:py-0">
+    {/* Bloque superior con fondo imagen y filtro marrón */}
+    <div className="relative w-full max-w-3xl mx-auto px-4 pt-16 pb-12 md:pt-24 md:pb-16">
+      <div className="absolute inset-0 rounded-3xl overflow-hidden">
+        <img
+          src="/imagenes/muerte-duelo-animal-perdida-mascota.png"
+          alt="Acompañamiento en el duelo animal"
+          className="w-full h-full object-cover object-top select-none pointer-events-none"
+          draggable="false"
+        />
+        <div className="absolute inset-0" style={{background: 'linear-gradient(180deg, rgba(123,74,29,0.85) 0%, rgba(123,74,29,0.7) 60%, rgba(0,0,0,0.5) 100%)'}}></div>
+      </div>
+      <div className="relative z-10 text-brand-light">
+        <h1 className="text-3xl md:text-4xl font-bold mb-4 flex items-center gap-2">
+          <span role="img" aria-label="huella">🐾</span> Acompañamiento en el Duelo Animal
+        </h1>
+        <p className="mb-6 text-brand-accent font-semibold">Por ili – A.D.A. (Acompañante en el Duelo Animal)</p>
+        <p className="mb-4">La partida de mi compañero peludo fue uno de los momentos más difíciles de mi vida. Sin embargo, ese dolor me llevó a descubrir una vocación: acompañar a otras personas que atraviesan el duelo por sus animales de compañía. Gracias a la formación como A.D.A. bajo la guía de mi mentora Laura Vidal —un ser único que me enseñó a mirar la vida y la muerte con otros ojos— hoy puedo ofrecerte un espacio seguro, respetuoso y libre de juicios para transitar este proceso.</p>
+        <p className="mb-4">No importa si tu compañero fue un perro, gato, conejo, loro, ratón, lagartija o pez. Lo que realmente importa es el vínculo que compartiste con él, el amor que le diste y el vacío que ha dejado su partida.</p>
+        <h2 className="text-2xl font-bold mt-8 mb-2">¿Qué ofrezco?</h2>
+        <p className="mb-4">Un servicio personalizado de acompañamiento emocional para personas que han perdido a sus animales de compañía. Mi enfoque se basa en la escucha activa, la empatía y el respeto profundo por el vínculo humano-animal.</p>
+      </div>
+    </div>
   <h1 className="text-3xl md:text-4xl font-bold mb-4 flex items-center gap-2">
       <span role="img" aria-label="huella">🐾</span> Acompañamiento en el Duelo Animal
     </h1>
@@ -19,6 +35,7 @@ const DueloAnimal: React.FC = () => (
     <p className="mb-4">No importa si tu compañero fue un perro, gato, conejo, loro, ratón, lagartija o pez. Lo que realmente importa es el vínculo que compartiste con él, el amor que le diste y el vacío que ha dejado su partida.</p>
     <h2 className="text-2xl font-bold mt-8 mb-2">¿Qué ofrezco?</h2>
     <p className="mb-4">Un servicio personalizado de acompañamiento emocional para personas que han perdido a sus animales de compañía. Mi enfoque se basa en la escucha activa, la empatía y el respeto profundo por el vínculo humano-animal.</p>
+    {/* Tarjeta del plan */}
     <div className="mt-10 mb-8 flex flex-col items-center">
       <div className="w-full max-w-xl bg-brand-dark/80 rounded-2xl shadow-lg border border-brand-accent/30 p-6 md:p-8 flex flex-col items-center">
             <h2 className="text-2xl md:text-3xl font-bold text-brand-accent mb-2">
@@ -74,18 +91,20 @@ const DueloAnimal: React.FC = () => (
         </div>
       </div>
     </div>
-    <h2 className="text-2xl font-bold mt-8 mb-2"> Mi experiencia</h2>
-    <p className="mb-4">Acompañar a personas en duelo ha sido una de las vivencias más gratificantes de mi vida. Ver cómo alguien llega destrozado a la primera sesión y, poco a poco, empieza a ver la luz, a sentirse mejor, a transformar el dolor en amor… es profundamente conmovedor. El duelo animal suele ser incomprendido por el entorno, pero aquí encontrarás un espacio donde tu dolor será respetado, validado y cuidado.</p>
-    <div className="mt-8 flex flex-col md:flex-row md:items-center gap-4">
-      <a 
-        href="mailto:ilinicolonf@hotmail.com?subject=Deseo%20informaci%C3%B3n%20sobre%20el%20acompa%C3%B1amiento%20del%20duelo%20de%20mi%20compa%C3%B1ero.&body=Hola%20Iliana%2C%0A%0AMe%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20el%20acompa%C3%B1amiento%20en%20duelo%20animal.%20Estos%20son%20mis%20datos%3A%0A%0ANombre%3A%20%0ATel%C3%A9fono%3A%20%0AEmail%3A%20%0A%0AMi%20situaci%C3%B3n%20es%3A%20%0A%0A%28Por%20favor%2C%20cu%C3%A9ntame%20brevemente%20tu%20caso%20o%20duda%29%0A%0AGracias%20por%20tu%20ayuda%2C%0A" 
-        className="px-6 py-3 rounded bg-brand-accent text-brand-dark font-semibold text-lg shadow hover:opacity-90 transition"
-      >
-        Solicitar información o reservar sesión
-      </a>
-      <WhatsAppInfo phone="665149561" />
+    {/* Frame inferior: Mi experiencia y CTA */}
+    <div className="max-w-3xl mx-auto px-4">
+      <h2 className="text-2xl font-bold mt-8 mb-2"> Mi experiencia</h2>
+      <p className="mb-4">Acompañar a personas en duelo ha sido una de las vivencias más gratificantes de mi vida. Ver cómo alguien llega destrozado a la primera sesión y, poco a poco, empieza a ver la luz, a sentirse mejor, a transformar el dolor en amor… es profundamente conmovedor. El duelo animal suele ser incomprendido por el entorno, pero aquí encontrarás un espacio donde tu dolor será respetado, validado y cuidado.</p>
+      <div className="mt-8 flex flex-col md:flex-row md:items-center gap-4">
+        <a 
+          href="mailto:ilinicolonf@hotmail.com?subject=Deseo%20informaci%C3%B3n%20sobre%20el%20acompa%C3%B1amiento%20del%20duelo%20de%20mi%20compa%C3%B1ero.&body=Hola%20Iliana%2C%0A%0AMe%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20el%20acompa%C3%B1amiento%20en%20duelo%20animal.%20Estos%20son%20mis%20datos%3A%0A%0ANombre%3A%20%0ATel%C3%A9fono%3A%20%0AEmail%3A%20%0A%0AMi%20situaci%C3%B3n%20es%3A%20%0A%0A%28Por%20favor%2C%20cu%C3%A9ntame%20brevemente%20tu%20caso%20o%20duda%29%0A%0AGracias%20por%20tu%20ayuda%2C%0A" 
+          className="px-6 py-3 rounded bg-brand-accent text-brand-dark font-semibold text-lg shadow hover:opacity-90 transition"
+        >
+          Solicitar información o reservar sesión
+        </a>
+        <WhatsAppInfo phone="665149561" />
+      </div>
     </div>
-  </div>
   </section>
 );
 
