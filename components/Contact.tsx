@@ -4,7 +4,7 @@ import { useInView } from '../hooks/useInView';
 
 import { Mail, User, MessageCircle } from 'lucide-react';
 
-const initialState = { nombre: '', email: '', mensaje: '' };
+const initialState = { nombre: '', email: '', mensaje: '', hp: '', legal: false };
 
 const Contact: React.FC = () => {
   const [titleRef, titleInView] = useInView<HTMLHeadingElement>({ threshold: 0.2, triggerOnce: true });
@@ -23,12 +23,14 @@ const Contact: React.FC = () => {
       ? 'Introduce un email válido.'
       : '',
     mensaje: !form.mensaje ? 'El mensaje es obligatorio.' : '',
+    legal: !form.legal ? 'Debes aceptar la política de privacidad.' : '',
   };
 
-  const isValid = !errors.nombre && !errors.email && !errors.mensaje;
+  const isValid = !errors.nombre && !errors.email && !errors.mensaje && !errors.legal && !form.hp;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, type, value, checked } = e.target;
+    setForm({ ...form, [name]: type === 'checkbox' ? checked : value });
   };
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -42,10 +44,13 @@ const Contact: React.FC = () => {
     if (!isValid) return;
     setLoading(true);
     try {
+      // No enviar si honeypot relleno
+      if (form.hp) return;
+      const { hp, ...safeForm } = form;
       const res = await fetch('https://formspree.io/f/xblalnpj', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify(safeForm),
       });
       if (res.ok) {
         setSuccess(true);
@@ -86,6 +91,18 @@ const Contact: React.FC = () => {
               ¡Mensaje enviado! Te responderé pronto.
             </div>
           )}
+          {/* Honeypot invisible para bots */}
+          <input
+            type="text"
+            name="hp"
+            value={form.hp}
+            onChange={handleChange}
+            tabIndex={-1}
+            autoComplete="off"
+            className="hidden"
+            style={{ display: 'none' }}
+            aria-hidden="true"
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <label className="relative w-full">
               <span className="sr-only">Nombre</span>
@@ -146,6 +163,22 @@ const Contact: React.FC = () => {
               <span id="mensaje-error" className="text-xs text-red-500 mt-1 block animate-fade-in">{errors.mensaje}</span>
             )}
           </label>
+          <label className="flex items-center gap-2 text-sm mt-2">
+            <input
+              type="checkbox"
+              name="legal"
+              checked={form.legal}
+              onChange={handleChange}
+              className="accent-brand-accent w-4 h-4"
+              required
+            />
+            <span>
+              He leído y acepto la <button type="button" className="underline hover:text-brand-accent" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>política de privacidad</button> y el tratamiento de mis datos.
+            </span>
+          </label>
+          {errors.legal && (touched.legal || submitted) && (
+            <span className="text-xs text-red-500 mt-1 block animate-fade-in">{errors.legal}</span>
+          )}
           <div className="text-center pt-4">
             <button
               type="submit"

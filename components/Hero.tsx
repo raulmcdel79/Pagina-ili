@@ -26,14 +26,14 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-                <section 
-                    className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-cover bg-center bg-fixed"
-                    style={{ backgroundImage: "url('/imagenes/foto-portada.png?v=2')" }}
-                >
+        <section 
+            className="relative min-h-[80vh] sm:min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 py-20 sm:py-32 overflow-hidden bg-cover bg-center bg-fixed"
+            style={{ backgroundImage: "url('/imagenes/foto-portada.png?v=2')" }}
+        >
         <div className="absolute inset-0 bg-brand-dark/60"></div>
         <div className="relative z-10">
             <div className={`transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <h1 className="text-[2.5rem] leading-tight sm:text-5xl md:text-7xl lg:text-8xl font-playfair text-brand-light font-bold drop-shadow-2xl">
+            <h1 className="text-3xl leading-tight sm:text-5xl md:text-7xl lg:text-8xl font-playfair text-brand-light font-bold drop-shadow-2xl">
                 Dale a tu compañero el <br />
                 <span className="inline-flex items-center justify-center flex-wrap">
                     <span className="text-brand-accent relative h-[1.25em] w-[5.2em] overflow-hidden text-center">

@@ -16,7 +16,8 @@ const testimonials = [
   {
     quote: "Ili, mil gracias por la dedicatoria. Para mí ha sido un placer conocerte mejor y ver con qué amor has tratado a Bujo y cómo cuidas de todos los peluditos.",
     author: "Carmen, Tutora de Bujo",
-    avatar: "/imagenes/3.png"
+  avatar: "/imagenes/gato-residencia-valencia-1.png",
+  alt: "Gato en residencia felina en Valencia"
   },
   {
     quote: "Iliana fue un apoyo fundamental en el momento más difícil. Nuestra perra de 14 años y medio sufría demencia y dolor. Estábamos agotados y no éramos conscientes de la gravedad de la situación. Gracias a la comprensión y la ayuda de Iliana, entendimos que lo más compasivo era dejarla ir. Su guía fue esencial para tomar la decisión correcta y siempre le estaremos agradecidos.",
@@ -119,7 +120,7 @@ const Testimonials: React.FC = () => {
               }}
             >
               <div className="flex flex-col items-center justify-center py-8 md:py-10">
-                <img src={testimonial.avatar} alt={`Foto de ${testimonial.author}, tutor satisfecho`} loading="lazy" className="w-20 h-20 rounded-full mb-6 border-4 border-white/10"/>
+                <img src={testimonial.avatar} alt={testimonial.alt || `Foto de ${testimonial.author}, tutor satisfecho`} loading="lazy" className="w-20 h-20 rounded-full mb-6 border-4 border-white/10"/>
                 <p className="text-xl md:text-2xl font-source-serif italic text-brand-light/90 leading-relaxed max-w-3xl px-2 md:px-4">
                   "{testimonial.quote}"
                 </p>

@@ -2,25 +2,25 @@ import React from 'react';
 import { useInView } from '../hooks/useInView';
 
 const dogImages = [
-  '/imagenes/1.png',
-  '/imagenes/2.png',
-  '/imagenes/3.png',
-  '/imagenes/4.png',
-  '/imagenes/5.png',
-  '/imagenes/6.png',
-  '/imagenes/7.png',
-  '/imagenes/8.png',
-  '/imagenes/9.png',
-  '/imagenes/10.png',
-  '/imagenes/11.png',
-  '/imagenes/12.png',
-  '/imagenes/13.png',
-  '/imagenes/14.png',
-  '/imagenes/15.png',
-  '/imagenes/16.png',
-  '/imagenes/17.png',
-  '/imagenes/18.png',
-  '/imagenes/19.png',
+  '/imagenes/perro-paseo-valencia-1.png',
+  '/imagenes/perro-guarderia-valencia-2.png',
+  '/imagenes/gato-residencia-valencia-1.png',
+  '/imagenes/gato-paseo-valencia-1.png',
+  '/imagenes/perro-duelo-animal-valencia-1.png',
+  '/imagenes/perro-hotel-valencia-1.png',
+  '/imagenes/gato-guarderia-valencia-1.png',
+  '/imagenes/perro-cuidados-especiales-valencia-1.png',
+  '/imagenes/perro-paseo-valencia-2.png',
+  '/imagenes/gato-cuidados-especiales-valencia-1.png',
+  '/imagenes/perro-residencia-valencia-2.png',
+  '/imagenes/perro-paseo-valencia-3.png',
+  '/imagenes/gato-hotel-valencia-1.png',
+  '/imagenes/perro-guarderia-valencia-3.png',
+  '/imagenes/perro-duelo-animal-valencia-2.png',
+  '/imagenes/gato-paseo-valencia-2.png',
+  '/imagenes/perro-hotel-valencia-2.png',
+  '/imagenes/perro-cuidados-especiales-valencia-2.png',
+  '/imagenes/gato-residencia-valencia-2.png',
 ];
 
 
@@ -37,7 +37,29 @@ const Community: React.FC = () => {
             <ul className="flex items-center justify-center shrink-0 [&_li]:mx-8 animate-infinite-scroll group-hover:[animation-play-state:paused]">
                 {dogImages.map((src, index) => (
                     <li key={`${src}-${index}`} className="opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105">
-                        <img src={src} alt={`Tutor o mascota ${index + 1} — comunidad ATA-D`} loading="lazy" className="h-20 w-20 rounded-full object-cover object-center border-4 border-white/10" />
+                        <img src={src} alt={
+                          [
+                            'Perro en paseo por Valencia',
+                            'Perro en guardería en Valencia',
+                            'Gato en residencia felina en Valencia',
+                            'Gato en paseo por Valencia',
+                            'Perro acompañado en duelo animal en Valencia',
+                            'Perro en hotel canino en Valencia',
+                            'Gato en guardería felina en Valencia',
+                            'Perro con cuidados especiales en Valencia',
+                            'Perro en paseo por Valencia',
+                            'Gato con cuidados especiales en Valencia',
+                            'Perro en residencia canina en Valencia',
+                            'Perro en paseo por Valencia',
+                            'Gato en hotel felino en Valencia',
+                            'Perro en guardería en Valencia',
+                            'Perro acompañado en duelo animal en Valencia',
+                            'Gato en paseo por Valencia',
+                            'Perro en hotel canino en Valencia',
+                            'Perro con cuidados especiales en Valencia',
+                            'Gato en residencia felina en Valencia',
+                          ][index] || 'Mascota en ATA-D Valencia'
+                        } loading="lazy" className="h-20 w-20 rounded-full object-cover object-center border-4 border-white/10" />
                     </li>
                 ))}
             </ul>

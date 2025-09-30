@@ -11,6 +11,7 @@ import StatsStrip from './components/StatsStrip';
 import Magazine from './components/Magazine';
 import Booking from './components/Booking';
 import About from './components/About';
+import FAQAccordion from './components/FAQAccordion';
 import Contact from './components/Contact';
 import BlogList from './components/BlogList';
 import BlogPost from './components/BlogPost';
@@ -95,14 +96,14 @@ const App: React.FC = () => {
                     <span className="hidden md:inline-block bg-brand-dark/10 rounded px-3 py-1 text-sm font-normal ml-2">Nuevo</span>
                   </a>
                 </div>
-                <StatsStrip />
-                <Services />
-                <Magazine />
-                <Booking />
-                <About />
-                <Testimonials />
-                <Community />
-                <Contact />
+                  <StatsStrip />
+                  <Services />
+                  <Magazine />
+                  {/* Sección FAQ para SEO, al final de la home */}
+                  <About />
+                  <Community />
+                  {import.meta.env.VITE_SHOW_TESTIMONIALS !== 'false' && <Testimonials />}
+                  <Contact />
               </>
             } />
             <Route path="/duelo-animal" element={<DueloAnimal />} />
