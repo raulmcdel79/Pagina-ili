@@ -1,0 +1,21 @@
+{
+  "name": "A.T.A.D. – Asistenta de Tutores de Animales Domésticos",
+  "short_name": "ATAD Valencia",
+  "description": "Cuidado de perros y gatos en Valencia. Residencia, paseos, guardería, duelo animal.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#5c4942",
+  "theme_color": "#f8a9a4",
+  "icons": [
+    {
+      "src": "/imagenes/favicon.ico",
+      "sizes": "48x48 72x72 96x96 128x128 256x256",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/imagenes/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
