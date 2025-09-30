@@ -3,19 +3,19 @@ import React from "react";
 import WhatsAppInfo from "./WhatsAppInfo";
 
 const DueloAnimal: React.FC = () => (
-  <section className="relative max-w-3xl mx-auto px-4 py-12 text-brand-light">
-  <h1 className="text-3xl md:text-4xl font-bold mb-4 flex items-center gap-2 z-10 relative">
+  <section
+    className="relative w-full min-h-[600px] py-24 md:py-40 bg-cover bg-center overflow-hidden text-brand-light flex items-center justify-center"
+    style={{ backgroundImage: "url('/imagenes/muerte-duelo-animal-perdida-mascota.png')" }}
+  >
+    {/* Overlay marrón degradado con transparencia */}
+    <div className="absolute inset-0 z-0 pointer-events-none" style={{background: 'linear-gradient(180deg, rgba(123,74,29,0.7) 0%, rgba(123,74,29,0.5) 60%, rgba(0,0,0,0.4) 100%)'}}></div>
+  <div className="relative z-10 max-w-3xl mx-auto px-4 w-full">
+  <h1 className="text-3xl md:text-4xl font-bold mb-4 flex items-center gap-2">
       <span role="img" aria-label="huella">🐾</span> Acompañamiento en el Duelo Animal
     </h1>
-  <p className="mb-6 text-brand-accent font-semibold z-10 relative">Por ili – A.D.A. (Acompañante en el Duelo Animal)</p>
-  <p className="mb-4 z-10 relative">La partida de mi compañero peludo fue uno de los momentos más difíciles de mi vida. Sin embargo, ese dolor me llevó a descubrir una vocación: acompañar a otras personas que atraviesan el duelo por sus animales de compañía. Gracias a la formación como A.D.A. bajo la guía de mi mentora Laura Vidal —un ser único que me enseñó a mirar la vida y la muerte con otros ojos— hoy puedo ofrecerte un espacio seguro, respetuoso y libre de juicios para transitar este proceso.</p>
-    {/* Imagen de fondo decorativa */}
-    <img
-      src="/imagenes/muerte-duelo-animal-perdida-mascota.png"
-      alt="Acompañamiento en el duelo animal"
-      className="pointer-events-none select-none absolute left-0 right-0 mx-auto bottom-0 w-full max-w-3xl opacity-90 z-[1]"
-      style={{objectFit: 'cover', objectPosition: 'center', minHeight: '300px'}}
-    />
+  <p className="mb-6 text-brand-accent font-semibold">Por ili – A.D.A. (Acompañante en el Duelo Animal)</p>
+  <p className="mb-4">La partida de mi compañero peludo fue uno de los momentos más difíciles de mi vida. Sin embargo, ese dolor me llevó a descubrir una vocación: acompañar a otras personas que atraviesan el duelo por sus animales de compañía. Gracias a la formación como A.D.A. bajo la guía de mi mentora Laura Vidal —un ser único que me enseñó a mirar la vida y la muerte con otros ojos— hoy puedo ofrecerte un espacio seguro, respetuoso y libre de juicios para transitar este proceso.</p>
+    {/* ...el resto del contenido... */}
     <p className="mb-4">No importa si tu compañero fue un perro, gato, conejo, loro, ratón, lagartija o pez. Lo que realmente importa es el vínculo que compartiste con él, el amor que le diste y el vacío que ha dejado su partida.</p>
     <h2 className="text-2xl font-bold mt-8 mb-2">¿Qué ofrezco?</h2>
     <p className="mb-4">Un servicio personalizado de acompañamiento emocional para personas que han perdido a sus animales de compañía. Mi enfoque se basa en la escucha activa, la empatía y el respeto profundo por el vínculo humano-animal.</p>
@@ -85,6 +85,7 @@ const DueloAnimal: React.FC = () => (
       </a>
       <WhatsAppInfo phone="665149561" />
     </div>
+  </div>
   </section>
 );
 
