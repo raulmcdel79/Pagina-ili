@@ -3,6 +3,7 @@ import { useInView } from '../hooks/useInView';
 
 
 import { Mail, User, MessageCircle } from 'lucide-react';
+import PrivacyPolicyContent from './legal/PrivacyPolicyContent';
 
 const initialState = { nombre: '', email: '', mensaje: '', hp: '', legal: false };
 
@@ -14,6 +15,7 @@ const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showPrivacy, setShowPrivacy] = useState(false);
 
   const errors = {
     nombre: !form.nombre ? 'El nombre es obligatorio.' : '',
@@ -173,9 +175,15 @@ const Contact: React.FC = () => {
               required
             />
             <span>
-              He leído y acepto la <button type="button" className="underline hover:text-brand-accent" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>política de privacidad</button> y el tratamiento de mis datos.
+              He leído y acepto la <span className="underline cursor-pointer hover:text-brand-accent" onClick={() => setShowPrivacy(!showPrivacy)}>política de privacidad</span> y el tratamiento de mis datos.
             </span>
           </label>
+          {showPrivacy && (
+            <div className="my-4 p-4 bg-white/80 rounded shadow animate-fade-in">
+              <PrivacyPolicyContent />
+              <button type="button" className="mt-2 text-xs underline text-brand-accent" onClick={() => setShowPrivacy(false)}>Cerrar</button>
+            </div>
+          )}
           {errors.legal && (touched.legal || submitted) && (
             <span className="text-xs text-red-500 mt-1 block animate-fade-in">{errors.legal}</span>
           )}

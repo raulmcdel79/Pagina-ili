@@ -1,4 +1,6 @@
+
 import React from "react";
+import WhatsAppInfo from "./WhatsAppInfo";
 
 const DueloAnimal: React.FC = () => (
   <section className="max-w-3xl mx-auto px-4 py-12 text-brand-light">
@@ -74,6 +76,7 @@ const DueloAnimal: React.FC = () => (
       >
         Solicitar información o reservar sesión
       </a>
+      <WhatsAppInfo phone="665149561" />
     </div>
   </section>
 );
