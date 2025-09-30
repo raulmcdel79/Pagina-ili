@@ -11,9 +11,9 @@ const DueloAnimal: React.FC = () => (
   <p className="mb-4 z-10 relative">La partida de mi compañero peludo fue uno de los momentos más difíciles de mi vida. Sin embargo, ese dolor me llevó a descubrir una vocación: acompañar a otras personas que atraviesan el duelo por sus animales de compañía. Gracias a la formación como A.D.A. bajo la guía de mi mentora Laura Vidal —un ser único que me enseñó a mirar la vida y la muerte con otros ojos— hoy puedo ofrecerte un espacio seguro, respetuoso y libre de juicios para transitar este proceso.</p>
     {/* Imagen de fondo decorativa */}
     <img
-      src="/muerte-duelo-animal-perdida-mascota.png"
+      src="/imagenes/muerte-duelo-animal-perdida-mascota.png"
       alt="Acompañamiento en el duelo animal"
-      className="pointer-events-none select-none absolute left-0 right-0 mx-auto bottom-0 w-full max-w-3xl opacity-80 z-0"
+      className="pointer-events-none select-none absolute left-0 right-0 mx-auto bottom-0 w-full max-w-3xl opacity-90 z-[1]"
       style={{objectFit: 'cover', objectPosition: 'center', minHeight: '300px'}}
     />
     <p className="mb-4">No importa si tu compañero fue un perro, gato, conejo, loro, ratón, lagartija o pez. Lo que realmente importa es el vínculo que compartiste con él, el amor que le diste y el vacío que ha dejado su partida.</p>
