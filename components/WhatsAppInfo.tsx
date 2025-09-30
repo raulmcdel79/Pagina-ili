@@ -20,7 +20,6 @@ const WhatsAppInfo: React.FC<WhatsAppInfoProps> = ({ phone = "665149561" }) => {
       >
         Pedir información por WhatsApp
       </a>
-      <span className="text-sm text-brand-light/80">O escríbenos directamente al WhatsApp: <span className="font-bold">665 149 561</span></span>
     </div>
   );
 };
