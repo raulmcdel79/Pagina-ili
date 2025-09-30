@@ -68,7 +68,12 @@ const DueloAnimal: React.FC = () => (
     <h2 className="text-2xl font-bold mt-8 mb-2"> Mi experiencia</h2>
     <p className="mb-4">Acompañar a personas en duelo ha sido una de las vivencias más gratificantes de mi vida. Ver cómo alguien llega destrozado a la primera sesión y, poco a poco, empieza a ver la luz, a sentirse mejor, a transformar el dolor en amor… es profundamente conmovedor. El duelo animal suele ser incomprendido por el entorno, pero aquí encontrarás un espacio donde tu dolor será respetado, validado y cuidado.</p>
     <div className="mt-8 flex flex-col md:flex-row md:items-center gap-4">
-      <a href="mailto:info@iliadad.com" className="px-6 py-3 rounded bg-brand-accent text-brand-dark font-semibold text-lg shadow hover:opacity-90 transition">Solicitar información o reservar sesión</a>
+      <a 
+        href="mailto:ilinicolonf@hotmail.com?subject=Deseo%20informaci%C3%B3n%20sobre%20el%20acompa%C3%B1amiento%20del%20duelo%20de%20mi%20compa%C3%B1ero.&body=Hola%20Iliana%2C%0A%0AMe%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20el%20acompa%C3%B1amiento%20en%20duelo%20animal.%20Estos%20son%20mis%20datos%3A%0A%0ANombre%3A%20%0ATel%C3%A9fono%3A%20%0AEmail%3A%20%0A%0AMi%20situaci%C3%B3n%20es%3A%20%0A%0A%28Por%20favor%2C%20cu%C3%A9ntame%20brevemente%20tu%20caso%20o%20duda%29%0A%0AGracias%20por%20tu%20ayuda%2C%0A" 
+        className="px-6 py-3 rounded bg-brand-accent text-brand-dark font-semibold text-lg shadow hover:opacity-90 transition"
+      >
+        Solicitar información o reservar sesión
+      </a>
     </div>
   </section>
 );

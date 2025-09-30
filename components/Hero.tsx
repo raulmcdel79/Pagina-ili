@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
             </div>
             <div className={`transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <a 
-                href="#agenda" 
+                href="#contacto" 
                 ref={ctaRef}
                 className="mt-12 inline-block bg-brand-light text-brand-dark px-10 py-4 text-lg font-bold tracking-wider relative group overflow-hidden transition-transform duration-300 ease-in-out active:scale-95 hover:scale-105"
             >
