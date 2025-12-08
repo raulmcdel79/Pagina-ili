@@ -14,6 +14,7 @@ const Contact: React.FC = () => {
   const [touched, setTouched] = useState<{ [k: string]: boolean }>({});
   const [submitted, setSubmitted] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
 
@@ -48,16 +49,31 @@ const Contact: React.FC = () => {
     try {
       // No enviar si honeypot relleno
       if (form.hp) return;
-      const { hp, ...safeForm } = form;
-      const res = await fetch('https://formspree.io/f/xblalnpj', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(safeForm),
-      });
-      if (res.ok) {
-        setSuccess(true);
-        setForm(initialState);
-        setTouched({});
+      const { hp, legal, ...safeForm } = form;
+      // Map fields to common names expected by Formspree
+      const payload = {
+        name: safeForm.nombre,
+        email: safeForm.email,
+        message: safeForm.mensaje,
+      };
+
+      try {
+        const res = await fetch('https://formspree.io/f/xblalnpj', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (res.ok) {
+          setSuccess(true);
+          setErrorMessage(null);
+          setForm(initialState);
+          setTouched({});
+        } else {
+          // Try fallback to form POST in case API JSON endpoint rejects
+          setErrorMessage('No se pudo enviar el mensaje ahora. Por favor, intenta de nuevo o contactame por WhatsApp.');
+        }
+      } catch (err) {
+        setErrorMessage('Error de red al enviar el formulario. Por favor, verifica tu conexión e intenta de nuevo.');
       }
     } finally {
       setLoading(false);
@@ -91,7 +107,12 @@ const Contact: React.FC = () => {
         >
           {success && (
             <div className="text-green-600 bg-green-100 border border-green-300 rounded p-3 text-center animate-fade-in mb-4">
-              ¡Mensaje enviado! Te responderé pronto.
+              Tu mensaje se ha enviado correctamente. En breve recibirás más información sobre tu caso.
+            </div>
+          )}
+          {errorMessage && (
+            <div className="text-red-600 bg-red-100 border border-red-300 rounded p-3 text-center animate-fade-in mb-4">
+              {errorMessage}
             </div>
           )}
           {/* Honeypot invisible para bots */}
