@@ -1,92 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useInView } from '../hooks/useInView';
 
-
-import { Mail, User, MessageCircle } from 'lucide-react';
-import PrivacyPolicyContent from './legal/PrivacyPolicyContent';
+import { Mail } from 'lucide-react';
 import { MAILTO_ADDRESS, MAILTO_SUBJECT, MAILTO_BODY_TEMPLATE } from '../constants/contact';
-
-const initialState = { nombre: '', email: '', mensaje: '', hp: '', legal: false };
 
 const Contact: React.FC = () => {
   const [titleRef, titleInView] = useInView<HTMLHeadingElement>({ threshold: 0.2, triggerOnce: true });
-  const [formRef, formInView] = useInView<HTMLFormElement>({ threshold: 0.1, triggerOnce: true });
-  const [form, setForm] = useState(initialState);
-  const [touched, setTouched] = useState<{ [k: string]: boolean }>({});
-  const [submitted, setSubmitted] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [showPrivacy, setShowPrivacy] = useState(false);
-
-  const errors = {
-    nombre: !form.nombre ? 'El nombre es obligatorio.' : '',
-    email: !form.email
-      ? 'El email es obligatorio.'
-      : !/^\S+@\S+\.\S+$/.test(form.email)
-      ? 'Introduce un email válido.'
-      : '',
-    mensaje: !form.mensaje ? 'El mensaje es obligatorio.' : '',
-    legal: !form.legal ? 'Debes aceptar la política de privacidad.' : '',
-  };
-
-  const isValid = !errors.nombre && !errors.email && !errors.mensaje && !errors.legal && !form.hp;
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, type, value, checked } = e.target;
-    setForm({ ...form, [name]: type === 'checkbox' ? checked : value });
-  };
-
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setTouched({ ...touched, [e.target.name]: true });
-  };
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setSubmitted(true);
-    setTouched({ nombre: true, email: true, mensaje: true });
-    if (!isValid) return;
-    setLoading(true);
-    try {
-      // No enviar si honeypot relleno
-      if (form.hp) return;
-      const { hp, legal, ...safeForm } = form;
-      // Map fields to common names expected by Formspree
-      const payload = {
-        name: safeForm.nombre,
-        email: safeForm.email,
-        message: safeForm.mensaje,
-      };
-
-      try {
-        const res = await fetch('https://formspree.io/f/xblalnpj', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        if (res.ok) {
-          setSuccess(true);
-          setErrorMessage(null);
-          setForm(initialState);
-          setTouched({});
-        } else {
-          // Try fallback to form POST in case API JSON endpoint rejects
-          setErrorMessage('No se pudo enviar el mensaje ahora. Por favor, intenta de nuevo o contactame por WhatsApp.');
-        }
-      } catch (err) {
-        setErrorMessage('Error de red al enviar el formulario. Por favor, verifica tu conexión e intenta de nuevo.');
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleSendEmail = () => {
-    // Construir body usando valores actuales del formulario o plantilla
-    const body = `Hola Iliana,\n\nQuiero ponerme en contacto para recibir información sobre el acompañamiento en duelo animal. Estos son mis datos:\n\nNombre: ${form.nombre || ''}\nTeléfono: ${''}\nEmail: ${form.email || ''}\n\nMi situación:\n${form.mensaje || ''}\n\nGracias por tu ayuda,`;
     const subject = MAILTO_SUBJECT || 'Consulta acompañamiento duelo animal';
+    const body = MAILTO_BODY_TEMPLATE || 'Hola, quisiera información sobre el acompañamiento en duelo.';
     const mailto = `mailto:${MAILTO_ADDRESS}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    // Abrir cliente de correo
     window.location.href = mailto;
   };
 
@@ -109,27 +33,11 @@ const Contact: React.FC = () => {
           </p>
         </div>
 
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className="mt-8 space-y-6 max-w-2xl mx-auto text-left bg-white/10 p-8 rounded-xl shadow-lg backdrop-blur"
-          autoComplete="off"
-        >
-          {success && (
-            <div className="text-green-600 bg-green-100 border border-green-300 rounded p-3 text-center animate-fade-in mb-4">
-              Tu mensaje se ha enviado correctamente. En breve recibirás más información sobre tu caso.
-            </div>
-          )}
-          {errorMessage && (
-            <div className="text-red-600 bg-red-100 border border-red-300 rounded p-3 text-center animate-fade-in mb-4">
-              {errorMessage}
-            </div>
-          )}
-          {/* Banner con opción de enviar por email (cliente de correo) */}
-          <div className="my-4 p-4 rounded-lg bg-gradient-to-r from-brand-light to-brand-accent text-brand-dark shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-8 max-w-2xl mx-auto text-left">
+          <div className="my-4 p-6 rounded-lg bg-gradient-to-r from-brand-light to-brand-accent text-brand-dark shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-left">
-              <strong className="block">¿Prefieres enviar un email?</strong>
-              <span className="block text-sm mt-1">Abre tu cliente de correo con el mensaje prellenado para solicitar acompañamiento en duelo.</span>
+              <strong className="block">Enviame un mail y me pondre en contacto contigo.</strong>
+              <span className="block text-sm mt-1">Si prefieres, usa el botón para abrir tu cliente de correo y mandar tu consulta sobre acompañamiento en duelo.</span>
             </div>
             <div className="flex gap-2">
               <button
@@ -141,114 +49,7 @@ const Contact: React.FC = () => {
               </button>
             </div>
           </div>
-          {/* Honeypot invisible para bots */}
-          <input
-            type="text"
-            name="hp"
-            value={form.hp}
-            onChange={handleChange}
-            tabIndex={-1}
-            autoComplete="off"
-            className="hidden"
-            style={{ display: 'none' }}
-            aria-hidden="true"
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <label className="relative w-full">
-              <span className="sr-only">Nombre</span>
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-brand-accent"><User size={20} /></span>
-              <input
-                type="text"
-                name="nombre"
-                placeholder="Tu Nombre"
-                value={form.nombre}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className={`w-full pl-10 pr-4 py-3 bg-white/90 text-brand-dark border ${errors.nombre && (touched.nombre || submitted) ? 'border-red-400' : 'border-white/10'} focus:ring-2 focus:ring-brand-accent outline-none transition-shadow placeholder:text-brand-dark/60 rounded-lg shadow-sm`}
-                required
-                aria-invalid={!!errors.nombre}
-                aria-describedby="nombre-error"
-              />
-              {errors.nombre && (touched.nombre || submitted) && (
-                <span id="nombre-error" className="text-xs text-red-500 mt-1 block animate-fade-in">{errors.nombre}</span>
-              )}
-            </label>
-            <label className="relative w-full">
-              <span className="sr-only">Email</span>
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-brand-accent"><Mail size={20} /></span>
-              <input
-                type="email"
-                name="email"
-                placeholder="Tu Email"
-                value={form.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className={`w-full pl-10 pr-4 py-3 bg-white/90 text-brand-dark border ${errors.email && (touched.email || submitted) ? 'border-red-400' : 'border-white/10'} focus:ring-2 focus:ring-brand-accent outline-none transition-shadow placeholder:text-brand-dark/60 rounded-lg shadow-sm`}
-                required
-                aria-invalid={!!errors.email}
-                aria-describedby="email-error"
-                autoComplete="email"
-              />
-              {errors.email && (touched.email || submitted) && (
-                <span id="email-error" className="text-xs text-red-500 mt-1 block animate-fade-in">{errors.email}</span>
-              )}
-            </label>
-          </div>
-          <label className="relative w-full block">
-            <span className="sr-only">Mensaje</span>
-            <span className="absolute left-3 top-4 text-brand-accent"><MessageCircle size={20} /></span>
-            <textarea
-              name="mensaje"
-              rows={4}
-              placeholder="Tu mensaje..."
-              value={form.mensaje}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={`w-full pl-10 pr-4 py-3 bg-white/90 text-brand-dark border ${errors.mensaje && (touched.mensaje || submitted) ? 'border-red-400' : 'border-white/10'} focus:ring-2 focus:ring-brand-accent outline-none transition-shadow placeholder:text-brand-dark/60 rounded-lg shadow-sm`}
-              required
-              aria-invalid={!!errors.mensaje}
-              aria-describedby="mensaje-error"
-            ></textarea>
-            {errors.mensaje && (touched.mensaje || submitted) && (
-              <span id="mensaje-error" className="text-xs text-red-500 mt-1 block animate-fade-in">{errors.mensaje}</span>
-            )}
-          </label>
-          <label className="flex items-center gap-2 text-sm mt-2">
-            <input
-              type="checkbox"
-              name="legal"
-              checked={form.legal}
-              onChange={handleChange}
-              className="accent-brand-accent w-4 h-4"
-              required
-            />
-            <span>
-              He leído y acepto la <span className="underline cursor-pointer hover:text-brand-accent" onClick={() => setShowPrivacy(!showPrivacy)}>política de privacidad</span> y el tratamiento de mis datos.
-            </span>
-          </label>
-          {showPrivacy && (
-            <div className="my-4 p-4 bg-white/80 rounded shadow animate-fade-in">
-              <PrivacyPolicyContent />
-              <button type="button" className="mt-2 text-xs underline text-brand-accent" onClick={() => setShowPrivacy(false)}>Cerrar</button>
-            </div>
-          )}
-          {errors.legal && (touched.legal || submitted) && (
-            <span className="text-xs text-red-500 mt-1 block animate-fade-in">{errors.legal}</span>
-          )}
-          <div className="text-center pt-4">
-            <button
-              type="submit"
-              className={`bg-brand-light text-brand-dark px-10 py-3 text-base font-bold tracking-wider rounded-lg shadow hover:bg-brand-accent transition-all duration-300 active:scale-95 relative overflow-hidden ${loading ? 'opacity-60 pointer-events-none' : ''}`}
-              disabled={loading}
-            >
-              {loading ? (
-                <span className="flex items-center justify-center gap-2"><span className="animate-spin h-5 w-5 border-2 border-t-transparent border-brand-dark rounded-full"></span> Enviando...</span>
-              ) : (
-                'Enviar Mensaje'
-              )}
-            </button>
-          </div>
-        </form>
+        </div>
       </div>
     </section>
   );
