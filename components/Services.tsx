@@ -14,18 +14,18 @@ const services: Service[] = [
   { 
     title: 'Paseos personalizados', 
     icon: PawPrint,
-    description: "Cada perro es un mundo, y sus paseos también deberían serlo. Ofrecemos paseos adaptados a la energía, edad y necesidades de tu compañero, desde caminatas tranquilas para los más mayores hasta rutas estimulantes para los más activos. Siempre individuales para garantizar atención plena.",
+    description: "Cada perro es único, y su tiempo fuera de casa también debería serlo. Me adapto a su energía, edad y necesidades, ofreciendo desde caminatas relajadas para los más mayores hasta rutas estimulantes para los más activos. Siempre de forma individual para garantizar atención plena.",
     details: [
       "Rutas seguras y variadas.",
       "Foco en socialización controlada (si se desea).",
       "Refuerzo de buenos hábitos de paseo.",
-      "Reporte post-paseo con fotos y resumen."
+      "Reporte con fotos y resumen al finalizar."
     ]
   },
   { 
     title: 'Guardería diurna', 
     icon: Home,
-    description: "¿Tu compañero pasa mucho tiempo solo en casa? Nuestra guardería diurna es el lugar perfecto para que socialice, juegue y gaste energía en un entorno seguro y supervisado. Un día lleno de diversión y cuidados mientras estás en el trabajo.",
+    description: "¿Tu compañero pasa mucho tiempo solo en casa? Mi guardería diurna es el lugar perfecto para que socialice, juegue y gaste energía en un entorno seguro y supervisado. Un día lleno de diversión y cuidados mientras estás en el trabajo.",
     details: [
       "Grupos de juego reducidos y compatibles.",
       "Zonas de descanso y relax.",
@@ -36,9 +36,9 @@ const services: Service[] = [
   { 
     title: 'Hotel para perros', 
     icon: HeartHandshake,
-    description: "Cuando te vas de viaje, tu perro también merece unas vacaciones. Nuestro servicio de hotel ofrece un ambiente familiar y libre de jaulas, donde tu compañero se sentirá como en casa. Cuidado, mimos y diversión las 24 horas del día.",
+    description: "Cuando te vas de viaje, tu perro también merece unas vacaciones. Mi servicio de hotel ofrece un ambiente familiar y libre de jaulas, donde tu compañero se sentirá como en casa. Cuidado, mimos y diversión las 24 horas del día.",
     details: [
-      "Alojamiento en un hogar, no en una instalación.",
+      "Alojamiento en mi hogar, no en una instalación.",
       "Rutinas diarias mantenidas (paseos, comidas).",
       "Juegos, socialización y mucho cariño.",
       "Actualizaciones diarias para tu tranquilidad."
@@ -47,9 +47,9 @@ const services: Service[] = [
   { 
     title: 'Administración de medicamentos', 
     icon: Pill,
-    description: "La salud de tu compañero es nuestra prioridad. Contamos con la experiencia y la delicadeza necesarias para administrar todo tipo de medicamentos, ya sean orales, inyectables o tópicos, siguiendo estrictamente las pautas de tu veterinario.",
+    description: "La salud de tu compañero es mi prioridad. Cuento con la experiencia y la delicadeza necesarias para administrar todo tipo de medicamentos, ya sean orales, inyectables o tópicos, siguiendo estrictamente las pautas de tu veterinario.",
     details: [
-      "Personal con experiencia en administración de medicación.",
+      "Experiencia en administración de medicación.",
       "Seguimiento riguroso de horarios y dosis.",
       "Manejo de animales con necesidades especiales.",
       "Coordinación directa con tu clínica veterinaria si es necesario."
@@ -58,9 +58,9 @@ const services: Service[] = [
   { 
     title: 'Visitas al veterinario', 
     icon: Stethoscope,
-    description: "Sabemos que la logística de una visita al veterinario puede ser complicada. Ofrecemos un servicio de acompañamiento para llevar a tu compañero a sus citas, ya sean revisiones de rutina, vacunaciones o consultas específicas, garantizando un transporte seguro y un manejo tranquilo.",
+    description: "Sé que la logística de una visita al veterinario puede ser complicada. Por eso, ofrezco un servicio de acompañamiento para llevar a tu compañero a sus citas, ya sean revisiones de rutina, vacunaciones o consultas específicas, garantizando un transporte seguro y un manejo tranquilo.",
     details: [
-      "Transporte seguro y adaptado.",
+      "Compra de medicamentos.",
       "Acompañamiento durante toda la consulta.",
       "Recogida de informes y recetas.",
       "Comunicación detallada de las indicaciones del veterinario."
@@ -79,19 +79,23 @@ const services: Service[] = [
   },
 ];
 
-const ServiceCard: React.FC<{ service: Service; delay: number; onClick: () => void }> = ({ service, delay, onClick }) => {
-  const [ref, isInView] = useInView<HTMLButtonElement>({ threshold: 0.1, triggerOnce: true });
+const ServiceCard: React.FC<{ service: Service; delay: number }> = ({ service, delay }) => {
+  const [ref, isInView] = useInView<HTMLDivElement>({ threshold: 0.1, triggerOnce: true });
   return (
-    <button
+    <div
       ref={ref}
-      onClick={onClick}
-      className={`bg-white/5 backdrop-blur-md border border-white/10 p-8 text-center transition-all duration-700 ease-out group hover:-translate-y-2 hover:shadow-2xl hover:bg-white/10 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      className={`bg-white/5 backdrop-blur-md border border-white/10 p-8 text-center rounded-xl transition-all duration-700 ease-out group hover:-translate-y-2 hover:shadow-2xl hover:bg-white/10 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       style={{ transitionDelay: `${delay}ms` }}
-      aria-haspopup="dialog"
     >
       <service.icon className="mx-auto h-12 w-12 text-brand-accent mb-6 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
-      <h3 className="text-xl font-libre-baskerville font-semibold text-brand-light">{service.title}</h3>
-    </button>
+      <h3 className="text-xl font-libre-baskerville font-semibold text-brand-light mb-4">{service.title}</h3>
+      <p className="text-brand-light/90 mb-4 min-h-[64px]">{service.description}</p>
+      <ul className="list-disc list-inside text-left text-brand-light/80 space-y-2 mb-6 mx-auto max-w-xs">
+        {service.details.map(detail => (
+          <li key={detail}>{detail}</li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
@@ -109,40 +113,20 @@ const Services: React.FC = () => {
 
   return (
     <>
-      <section id="servicios" className="py-24 md:py-32">
+      <section id="servicios" className="py-16 md:py-20">
         <div className="container mx-auto px-6">
           <h2 
               ref={titleRef}
-              className={`text-4xl md:text-6xl font-playfair text-center mb-20 transition-opacity duration-1000 ${titleInView ? 'opacity-100' : 'opacity-0'}`}>
+              className={`text-4xl md:text-6xl font-playfair text-center mb-8 transition-opacity duration-1000 ${titleInView ? 'opacity-100' : 'opacity-0'}`}>
               Cuidado Integral y Personalizado
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {services.map((service, index) => (
-              <ServiceCard key={service.title} service={service} delay={index * 150} onClick={() => handleOpenModal(service)} />
+              <ServiceCard key={service.title} service={service} delay={index * 150} />
             ))}
           </div>
         </div>
       </section>
-
-      {selectedService && (
-        <Modal
-          isOpen={!!selectedService}
-          onClose={handleCloseModal}
-          title={selectedService.title}
-        >
-          <p>{selectedService.description}</p>
-          <ul className="list-disc list-inside space-y-2 mt-4 pl-2">
-            {selectedService.details.map(detail => (
-              <li key={detail}>{detail}</li>
-            ))}
-          </ul>
-          <div className="text-center mt-8">
-            <a href="#contacto" onClick={handleCloseModal} className="bg-brand-accent text-brand-dark px-8 py-3 text-base font-bold tracking-wider hover:bg-brand-light transition-all duration-300 active:scale-95 transform hover:scale-105">
-              Consultar Disponibilidad
-            </a>
-          </div>
-        </Modal>
-      )}
     </>
   );
 };

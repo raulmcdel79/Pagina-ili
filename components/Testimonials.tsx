@@ -14,14 +14,14 @@ const testimonials = [
     avatar: "/imagenes/Luna.png"
   },
   {
-    quote: "Ili, mil gracias por la dedicatoria. Para mí ha sido un placer conocerte mejor y ver con qué amor has tratado a Bujo y cómo cuidas de todos los peluditos.",
+    quote: "Muchísimas gracias, me ha encantado tenerte cuidando a mi chico. No sabes lo agradecida que estoy de que pueda contar contigo para cuidar a Bujo cuando me voy, porque aunque sea tan antipático para mí es como mi bebé. Ha sido un placer conocerte mejor y ver con que amor lo has tratado y como cuidas de todos los peluditos.",
     author: "Carmen, Tutora de Bujo",
   avatar: "/imagenes/gato-residencia-valencia-1.png",
   alt: "Gato en residencia felina en Valencia"
   },
   {
     quote: "Iliana fue un apoyo fundamental en el momento más difícil. Nuestra perra de 14 años y medio sufría demencia y dolor. Estábamos agotados y no éramos conscientes de la gravedad de la situación. Gracias a la comprensión y la ayuda de Iliana, entendimos que lo más compasivo era dejarla ir. Su guía fue esencial para tomar la decisión correcta y siempre le estaremos agradecidos.",
-    author: "Kathy, Tutora de Billy",
+    author: "Kathy, Tutora de Cristine",
     avatar: "/imagenes/Billy.png"
   }
 ];
@@ -42,17 +42,15 @@ const Testimonials: React.FC = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
   };
   
-  useEffect(() => {
-    const slideInterval = setInterval(nextSlide, 7000);
-    return () => clearInterval(slideInterval);
-  }, [nextSlide]);
+  // Autoplay removed: testimonials should advance only manually with arrows or swipe.
 
   const measureHeight = useCallback(() => {
     const el = slideRefs.current[currentIndex];
     if (el) {
       const measured = el.scrollHeight;
       const min = 420;
-      setContainerHeight(Math.max(measured, min));
+      const buffer = 24; // padding to avoid accidental vertical scroll on some testimonials
+      setContainerHeight(Math.max(measured, min) + buffer);
     }
   }, [currentIndex]);
 
@@ -103,7 +101,7 @@ const Testimonials: React.FC = () => {
       <div className="container mx-auto px-6 max-w-4xl text-center relative z-10">
         <h2 className="text-4xl md:text-5xl font-playfair mb-16">Historias que nos inspiran</h2>
         <div 
-          className="relative overflow-x-hidden overflow-y-visible cursor-grab active:cursor-grabbing"
+          className="relative overflow-x-hidden overflow-y-hidden cursor-grab active:cursor-grabbing"
           style={{ height: containerHeight ? `${containerHeight}px` : undefined }}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}

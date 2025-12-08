@@ -45,9 +45,9 @@ const StatsStrip: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-brand-dark/30">
+    <section className="py-12 bg-brand-dark/30">
         <div ref={statsRef} className="container mx-auto px-6">
-            <div className={`grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto transition-opacity duration-1000 ${statsInView ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto transition-opacity duration-1000 ${statsInView ? 'opacity-100' : 'opacity-0'}`}>
                 {statsData.map(stat => (
                     <StatItem key={stat.label} target={stat.target} label={stat.label} isInView={statsInView} />
                 ))}

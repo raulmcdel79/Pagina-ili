@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { PHONE_TEL } from '../constants/contact';
 import { Instagram, Facebook, Mail } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
@@ -114,31 +115,54 @@ const Footer: React.FC<FooterProps> = ({ onOpenLegalModal }) => {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    if (href === '#') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Reuse header behavior: href can be '#id' or '/path#id' or '/path'
+    const isHashOnly = href.startsWith('#');
+    const hasPath = href.startsWith('/');
+    let path = '';
+    let targetId = '';
+
+    if (isHashOnly) {
+      path = '/';
+      targetId = href.substring(1);
+    } else if (hasPath) {
+      const [p, hash] = href.split('#');
+      path = p || '/';
+      targetId = hash || '';
+    } else {
+      path = href;
+    }
+
+    const doScroll = () => {
+      if (!targetId) return;
+      const targetElement = document.getElementById(targetId);
+      if (!targetElement) return;
+  const headerElement = document.querySelector('header');
+  const headerOffsetRaw = headerElement ? headerElement.offsetHeight + 8 : 88;
+  const tightIds = ['servicios', 'sobre-ili'];
+  const headerOffset = tightIds.includes(targetId) ? Math.max(8, headerOffsetRaw - 28) : headerOffsetRaw;
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      targetElement.classList.add('focus-target');
+      setTimeout(() => targetElement.classList.remove('focus-target'), 1000);
+    };
+
+    if (path !== window.location.pathname) {
+      // navigate to new path and scroll after a short delay
+      window.location.href = path + (targetId ? `#${targetId}` : '');
+      setTimeout(doScroll, 500);
       return;
     }
-    const targetId = href.substring(1);
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      setTimeout(() => {
-        const headerElement = document.querySelector('header');
-        const headerOffset = headerElement ? headerElement.offsetHeight : 80;
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }, 50);
-    }
+
+    doScroll();
   };
 
   const navLinks = [
-    { name: 'Servicios', href: '#servicios' },
-    { name: 'Revista T.E.O.', href: '#revista' },
-    { name: 'Duelo Animal', href: '/duelo-animal' },
-    { name: 'Sobre Ili', href: '#sobre-ili' },
+  { name: 'Servicios', href: '#servicios' },
+  { name: 'Revista T.E.O.', href: '#revista-cards' },
+  { name: 'Duelo Animal', href: '/duelo-animal#duelo' },
+  { name: 'Sobre Ili', href: '#sobre-ili-header' },
+    { name: 'Contacto', href: '#contact-header' },
   ];
 
   return (
@@ -209,7 +233,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenLegalModal }) => {
 
         {/* Copyright */}
         <div className="pt-8 border-t border-white/10 text-xs text-brand-light/70 text-center">
-             <p className="mb-2">WhatsApp: <a href="tel:665149561" className="hover:text-brand-light">665 149 561</a></p>
+             <p className="mb-2">WhatsApp: <a href={`tel:${PHONE_TEL}`} className="hover:text-brand-light">{PHONE_TEL.replace(/(\d{3})(\d{3})(\d{3})/, '$1 $2 $3')}</a></p>
              <p>
                 &copy; 2025 iliana nicolon fiol. Todos los derechos reservados.
                 <br />

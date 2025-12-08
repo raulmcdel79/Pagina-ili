@@ -131,85 +131,10 @@ const posts = {
     <li><strong>Ventajas:</strong> más rica de sabor, ideal para perros mañosos o viejitos.</li>
     <li><strong>Extra:</strong> aporta agua y ayuda a la hidratación.</li>
     <li><strong>Contras:</strong> sale más caro, no llena tanto y una vez abierta debe refrigerarse.</li>
-  </ul>
+  import React from 'react';
 
-  <h3>3. Dieta BARF (cruda y natural)</h3>
-  <ul>
-    <li><strong>Ventajas:</strong> carne cruda, huesos carnosos, verduras… más parecido a lo que comería un perro en la naturaleza.</li>
-    <li><strong>Extra:</strong> mejora el pelo, la digestión y la vitalidad.</li>
+  // Blog removed — stub to avoid runtime import errors where files still import this component.
+  const BlogPost: React.FC = () => null;
+
+  export default BlogPost;
     <li><strong>Contras:</strong> requiere supervisión profesional y mucha higiene para evitar bacterias.</li>
-  </ul>
-  <p><strong>Tendencia:</strong> menús BARF preparados y congelados, siempre guiados por un veterinario.</p>
-
-  <h3>4. Comida casera (hecha con tus manos)</h3>
-  <ul>
-    <li><strong>Ventajas:</strong> controlás vos la calidad y se adapta a alergias o problemas de salud.</li>
-    <li><strong>Contras:</strong> lleva más tiempo y sin guía puede haber carencias nutricionales.</li>
-  </ul>
-  <p><strong>Lo más buscado:</strong> recetas caseras para perros alérgicos o con sobrepeso.</p>
-</section>
-
-<section>
-  <h2>🚫 Alimentos prohibidos para perros</h2>
-  <ul>
-    <li>Chocolate</li>
-    <li>Uvas y pasas</li>
-    <li>Cebolla y ajo</li>
-    <li>Café y té</li>
-    <li>Huesos cocidos</li>
-    <li>Aguacate</li>
-  </ul>
-  <p>Un descuido puede terminar en urgencia veterinaria. Ojo con eso.</p>
-</section>
-
-<section>
-  <h2>Consejos prácticos de Ili 🐾</h2>
-  <ol>
-    <li>Consultá con tu veterinario antes de cambiar la dieta.</li>
-    <li>Mantené horarios fijos de comida.</li>
-    <li>Ajustá las raciones a su edad, tamaño y actividad.</li>
-    <li>Agua fresca siempre disponible.</li>
-    <li>Reducí los snacks industriales; mejor premios naturales.</li>
-  </ol>
-</section>
-
-<section>
-  <h2>FAQ: Preguntas frecuentes</h2>
-  <p><strong>¿Puedo mezclar pienso seco y comida húmeda?</strong><br>Sí, pero ajustá cantidades para evitar sobrepeso.</p>
-  <p><strong>¿La dieta BARF es mejor?</strong><br>Depende del perro, de la calidad de los ingredientes y de la supervisión profesional.</p>
-  <p><strong>¿Qué pasa si mi perro solo quiere comida casera?</strong><br>Se puede, pero siempre con asesoramiento veterinario.</p>
-</section>
-
-<section>
-  <h2>Cierre: elegí con amor y conciencia</h2>
-  <p>No hay una receta mágica. Lo que sí hay es observación, compromiso y ganas de dar lo mejor. Cada perro es único, y su comida también debería serlo.</p>
-  <p><em>En Ili creemos que alimentar bien es una forma de amar mejor.</em></p>
-</section>
-
-<footer>
-  <p><strong>Etiquetas:</strong> #alimentacionperros #nutricioncanina #dietabarf #pienso #perrosfelices #ilicuida #tutoresresponsables</p>
-</footer>
-    `,
-  },
-};
-
-const BlogPost: React.FC = () => {
-  const { slug } = useParams<{ slug: string }>();
-  const post = posts[slug || ''];
-
-  useDocumentMeta(
-    post?.title ? `${post.title} | Blog Ili` : "Blog | Ili",
-    post?.description || "Lee los mejores artículos para tutores de animales domésticos en el blog de Ili."
-  );
-  if (!post) return <div className="text-center py-32 text-brand-light">Post no encontrado.</div>;
-  return (
-    <article className="max-w-3xl mx-auto py-24 px-4 bg-white/10 rounded-xl shadow-lg mt-16">
-  <img src={post.image} alt={`${post.title} — imagen del artículo`} className="w-full h-72 object-cover object-center rounded mb-8" loading="lazy" />
-      <h1 className="font-playfair text-4xl md:text-5xl text-brand-accent mb-4">{post.title}</h1>
-      <p className="text-brand-light/70 mb-8">{post.date}</p>
-      <div className="prose prose-invert max-w-none text-brand-light" dangerouslySetInnerHTML={{ __html: post.content }} />
-    </article>
-  );
-};
-
-export default BlogPost;

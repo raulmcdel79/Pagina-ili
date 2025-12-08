@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+	--header-offset: 5.5rem; /* ajustar si el header cambia de altura */
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+/* aplica un offset al hacer scroll a elementos con id para evitar quedar ocultos por el header fijo */
+[id] {
+	scroll-margin-top: var(--header-offset);
+}
+
+/* Offset más pequeño para pantallas móviles */
+@media (max-width: 768px) {
+	:root {
+		--header-offset: 4.25rem;
+	}
+}
+
+/* Highlight temporal cuando se navega a una sección */
+.focus-target {
+	animation: focusPulse 1s ease-out;
+	box-shadow: 0 8px 30px rgba(123,74,29,0.18), inset 0 0 0 4px rgba(123,74,29,0.06);
+	border-radius: 12px;
+}
+
+@keyframes focusPulse {
+	0% { transform: translateY(0); opacity: 1; }
+	50% { transform: translateY(-6px); opacity: 0.95; }
+	100% { transform: translateY(0); opacity: 1; }
+}

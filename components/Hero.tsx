@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { CTA_HERO_LABEL } from '../constants/contact';
 
 const Hero: React.FC = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -26,8 +27,8 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-        <section 
-            className="relative min-h-[80vh] sm:min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 py-20 sm:py-32 overflow-hidden bg-cover bg-center bg-fixed"
+        <section id="inicio"
+              className="relative min-h-[70vh] sm:min-h-[80vh] flex flex-col items-center justify-center text-center px-4 sm:px-6 py-16 sm:py-20 overflow-hidden bg-cover bg-center bg-fixed"
             style={{ backgroundImage: "url('/imagenes/foto-portada.png?v=2')" }}
         >
         <div className="absolute inset-0 bg-brand-dark/60"></div>
@@ -49,13 +50,13 @@ const Hero: React.FC = () => {
             </h1>
             </div>
             <div className={`transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <a 
-                href="#contacto" 
+            <a
+                href="#contacto"
                 ref={ctaRef}
                 className="mt-12 inline-block bg-brand-light text-brand-dark px-10 py-4 text-lg font-bold tracking-wider relative group overflow-hidden transition-transform duration-300 ease-in-out active:scale-95 hover:scale-105"
             >
                 <span className="absolute inset-0 bg-brand-accent transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] transform -translate-x-full group-hover:translate-x-0"></span>
-                <span className="relative z-10 group-hover:text-brand-dark transition-colors duration-300">Consultar Agenda</span>
+                <span className="relative z-10 group-hover:text-brand-dark transition-colors duration-300">{CTA_HERO_LABEL}</span>
             </a>
             </div>
         </div>

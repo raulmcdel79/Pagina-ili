@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
+import { CTA_RESERVE_LABEL } from '../constants/contact';
 
 const TopBanner: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -9,7 +10,7 @@ const TopBanner: React.FC = () => {
   return (
     <div className="bg-brand-accent text-brand-dark py-2.5 px-6 text-center text-sm font-source-serif relative">
       <p>
-  Servicios disponibles en <strong>Valencia Capital</strong>. ¡Nuevas plazas para cuidado diurno! <a href="#contacto" className="font-bold underline hover:opacity-80 transition-opacity">Reservá ahora</a>
+  Servicios disponibles en <strong>Valencia Capital</strong>. ¡Nuevas plazas para cuidado diurno! <a href="#contacto" className="font-bold underline hover:opacity-80 transition-opacity">{CTA_RESERVE_LABEL}</a>
       </p>
       <button 
         onClick={() => setIsVisible(false)} 

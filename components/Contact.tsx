@@ -68,16 +68,17 @@ const Contact: React.FC = () => {
     <section
       id="contacto"
       className="relative py-24 md:py-40 bg-cover bg-center overflow-hidden"
-      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1546238232-20216dec9f72?q=80&w=2784&auto=format&fit=crop')" }}
+      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1546238232-20216dec9f72?q=80&w=2784&auto=format&fit=crop')", scrollMarginTop: 'var(--header-offset)' }}
     >
       <div className="absolute inset-0 bg-brand-dark/75"></div>
       <div className="relative z-30 container mx-auto px-6 max-w-3xl text-center">
+        <div id="contact-header" aria-hidden="true" style={{ scrollMarginTop: 'var(--header-offset)' }} />
         <div ref={titleRef}>
-          <h2 className={`text-4xl md:text-6xl font-playfair text-brand-light font-bold transition-all duration-1000 ease-out ${titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 id="contact-title" className={`text-4xl md:text-6xl font-playfair text-brand-light font-bold transition-all duration-1000 ease-out ${titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             ¿Tenés alguna consulta?
           </h2>
-          <p className={`mt-6 max-w-2xl mx-auto text-lg text-brand-light/70 leading-relaxed transition-all duration-1000 ease-out delay-200 ${titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Completá el formulario o contactame directamente por WhatsApp.<br />
+          <p className={`mt-4 max-w-2xl mx-auto text-lg text-brand-light/70 leading-relaxed transition-all duration-1000 ease-out delay-200 ${titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            Completá el formulario o contactame directamente por WhatsApp.
             <span className="block mt-2">Estoy para ayudarte a vos y a tu compañero.</span>
           </p>
         </div>
@@ -85,7 +86,7 @@ const Contact: React.FC = () => {
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="mt-16 space-y-6 max-w-2xl mx-auto text-left bg-white/10 p-8 rounded-xl shadow-lg backdrop-blur"
+          className="mt-8 space-y-6 max-w-2xl mx-auto text-left bg-white/10 p-8 rounded-xl shadow-lg backdrop-blur"
           autoComplete="off"
         >
           {success && (

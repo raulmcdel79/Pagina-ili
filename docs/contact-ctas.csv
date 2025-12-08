@@ -1,0 +1,12 @@
+text_visible,type,action,files,notes
+"Pedir información por WhatsApp",link,"https://wa.me/<phone>","components/WhatsAppInfo.tsx; App.tsx","Modal and component"
+"WhatsApp (floating)",button,modal,"App.tsx","Floating button opens modal"
+"Pedir información por WhatsApp",button,"https://wa.me/<phone>","components/DueloAnimal.tsx","Replaced mailto with WhatsApp + Email"
+"Solicitar información por email",link,"mailto:ilinicolonf@hotmail.com","components/DueloAnimal.tsx","Email fallback"
+"665 149 561",link,"tel:665149561","components/Footer.tsx","Footer phone"
+"Consultar Agenda",link,"#contacto","components/Hero.tsx","Hero CTA"
+"Reservá ahora",link,"#contacto","components/TopBanner.tsx","TopBanner CTA"
+"Contacto",navlink,"#contact-header","components/Header.tsx; components/Footer.tsx","Menu nav"
+"Enviar Mensaje",submit,"POST https://formspree.io/f/xblalnpj","components/Contact.tsx","Contact form"
+"Suscribirse",submit,"POST https://formspree.io/f/xblalnpj","components/Footer.tsx","Newsletter"
+"Política de Privacidad / Aviso Legal / Cookies",button,modal,"components/Footer.tsx","Legal modals"

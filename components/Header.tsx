@@ -23,101 +23,88 @@ const Header: React.FC = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsMenuOpen(false);
 
-    // Si ya estamos en la home
-    if (location.pathname === '/' && href.startsWith('#')) {
-      if (href === '#') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        return;
-      }
-      const targetId = href.substring(1);
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        setTimeout(() => {
-          const headerElement = document.querySelector('header');
-          const headerOffset = (headerElement ? headerElement.offsetHeight : 80) + 24;
-          const elementPosition = targetElement.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }, 50);
-      }
-    } else if (href.startsWith('#')) {
-      // Si estamos en otra ruta, navega a home y luego scroll
-      navigate('/');
-      setTimeout(() => {
-        if (href === '#') {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          const targetId = href.substring(1);
-          const scrollToSection = () => {
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-              const headerElement = document.querySelector('header');
-              const headerOffset = (headerElement ? headerElement.offsetHeight : 80) + 24;
-              const elementPosition = targetElement.getBoundingClientRect().top;
-              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-              window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-              });
-            } else {
-              setTimeout(scrollToSection, 100);
-            }
-          };
-          setTimeout(scrollToSection, 400);
-        }
-      }, 200);
+    // Parse href: could be '#id', '/path#id' or '/path'
+    const isHashOnly = href.startsWith('#');
+    const hasPath = href.startsWith('/');
+    let path = '';
+    let targetId = '';
+
+    if (isHashOnly) {
+      path = '/';
+      targetId = href.substring(1);
+    } else if (hasPath) {
+      const [p, hash] = href.split('#');
+      path = p || '/';
+      targetId = hash || '';
     } else {
-      // Navegación normal (por ejemplo, blog)
-      navigate(href);
+      path = href;
     }
+
+    const doScrollTo = (id: string) => {
+      if (!id) return;
+      const targetElement = document.getElementById(id);
+      if (!targetElement) return;
+      const headerElement = document.querySelector('header');
+      const headerOffsetRaw = headerElement ? headerElement.offsetHeight + 8 : 88;
+      // IDs que queremos que queden más "pegados" al header
+      const tightIds = ['servicios', 'sobre-ili'];
+      const headerOffset = tightIds.includes(id) ? Math.max(8, headerOffsetRaw - 28) : headerOffsetRaw;
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      // small highlight for feedback
+      targetElement.classList.add('focus-target');
+      setTimeout(() => targetElement.classList.remove('focus-target'), 1000);
+    };
+
+    // If we need to navigate to a different path first
+    if (path !== location.pathname) {
+      navigate(path);
+      if (targetId) {
+        // wait for navigation/render
+        setTimeout(() => doScrollTo(targetId), 300);
+      }
+      return;
+    }
+
+    // Same path: just scroll
+    if (targetId) {
+      doScrollTo(targetId);
+      return;
+    }
+
+    // Fallback: navigate to path
+    navigate(path);
   };
 
   const navLinks = [
     { name: 'Servicios', href: '#servicios' },
-    { name: 'Revista T.E.O.', href: '#revista' },
-    { name: 'Duelo Animal', href: '/duelo-animal' },
-    { name: 'Sobre Ili', href: '#sobre-ili' },
-    { name: 'Blog', href: '/blog', isBlog: true },
-    { name: 'Contacto', href: '#contacto' },
+    { name: 'Revista T.E.O.', href: '#revista-cards' },
+    { name: 'Duelo Animal', href: '/duelo-animal#duelo' },
+    { name: 'Sobre mi', href: '#sobre-ili' },
+    { name: 'Contacto', href: '#contact-header' },
   ];
   
   const NavLinksComponent: React.FC<{isMobile?: boolean}> = ({ isMobile = false }) => (
     <>
       {navLinks.map(link => (
-        link.isBlog ? (
-          <Link
-            key={link.name}
-            to={link.href}
-            onClick={() => setIsMenuOpen(false)}
-            className={isMobile
-              ? "text-2xl font-playfair text-brand-light py-3 text-center hover:text-brand-accent transition-colors duration-300"
-              : "text-brand-light/80 hover:text-brand-light transition-colors duration-300 relative group text-sm tracking-wider"
-            }
-          >
-            {link.name}
-            {!isMobile && <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-brand-light transition-all duration-300 group-hover:w-full"></span>}
-          </Link>
-        ) : (
-          <a
-            key={link.name}
-            href={link.href}
-            onClick={(e) => handleNavClick(e, link.href)}
-            className={isMobile
-              ? "text-2xl font-playfair text-brand-light py-3 text-center hover:text-brand-accent transition-colors duration-300"
-              : "text-brand-light/80 hover:text-brand-light transition-colors duration-300 relative group text-sm tracking-wider"
-            }
-          >
-            {link.name}
-            {!isMobile && <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-brand-light transition-all duration-300 group-hover:w-full"></span>}
-          </a>
-        )
+        <a
+          key={link.name}
+          href={link.href}
+          onClick={(e) => handleNavClick(e, link.href)}
+          className={isMobile
+            ? "text-2xl font-playfair text-brand-light py-3 text-center hover:text-brand-accent transition-colors duration-300"
+            : "text-brand-light/80 hover:text-brand-light transition-colors duration-300 relative group text-sm tracking-wider"
+          }
+        >
+          {link.name}
+          {!isMobile && <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-brand-light transition-all duration-300 group-hover:w-full"></span>}
+        </a>
       ))}
     </>
   );
@@ -128,7 +115,7 @@ const Header: React.FC = () => {
         <div className="container mx-auto px-6 py-5 flex items-center justify-between">
           {/* Izquierda: Iliana Nicolón */}
           <div className="flex-1 flex justify-start">
-            <Link to="/" className="text-2xl font-bold font-playfair tracking-wider text-brand-light">Iliana Nicolón</Link>
+            <a href="#inicio" onClick={(e) => handleNavClick(e, '#inicio')} className="text-2xl font-bold font-playfair tracking-wider text-brand-light">Iliana Nicolón</a>
           </div>
           {/* Centro: Botonera */}
           <nav className="hidden md:flex space-x-10 justify-center flex-1">

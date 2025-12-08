@@ -72,8 +72,10 @@ const Magazine: React.FC = () => {
                         <span className="text-4xl md:text-6xl font-bold">T.E.O.</span>
                         <span className="text-xl md:text-2xl"> Transforma | Educa | Orienta.</span>
                     </h2>
-                </div>
-                <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    </div>
+                    {/* Anchor justo antes de las tarjetas para que el scroll vaya directamente a las portadas */}
+                    <div id="revista-cards" aria-hidden="true" style={{ scrollMarginTop: 'var(--header-offset)' }} />
+                    <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     {articles.map((article, index) => (
                         <ArticleCard key={article.title} article={article} delay={index * 150} isInView={isInView} />
                     ))}

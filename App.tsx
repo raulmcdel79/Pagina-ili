@@ -12,10 +12,9 @@ import Magazine from './components/Magazine';
 import About from './components/About';
 import FAQAccordion from './components/FAQAccordion';
 import Contact from './components/Contact';
-import BlogList from './components/BlogList';
-import BlogPost from './components/BlogPost';
 import Modal from './components/Modal';
 import WhatsAppInfo from './components/WhatsAppInfo';
+import { WHATSAPP_NUMBER } from './constants/contact';
 import PrivacyPolicyContent from './components/legal/PrivacyPolicyContent';
 import LegalNoticeContent from './components/legal/LegalNoticeContent';
 import CookiesPolicyContent from './components/legal/CookiesPolicyContent';
@@ -108,8 +107,6 @@ const App: React.FC = () => {
               </>
             } />
             <Route path="/duelo-animal" element={<DueloAnimal />} />
-            <Route path="/blog" element={<BlogList />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
           </Routes>
         </main>
         <Footer onOpenLegalModal={handleOpenLegalModal} />
@@ -129,7 +126,7 @@ const App: React.FC = () => {
           <span className="hidden md:inline font-semibold">WhatsApp</span>
         </button>
         <Modal isOpen={showWhatsApp} onClose={() => setShowWhatsApp(false)} title="Pedir información por WhatsApp">
-          <WhatsAppInfo phone="665149561" />
+          <WhatsAppInfo phone={WHATSAPP_NUMBER} />
         </Modal>
       </div>
     </Router>

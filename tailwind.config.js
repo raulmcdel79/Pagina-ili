@@ -5,7 +5,7 @@ module.exports = {
     './App.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
     './hooks/**/*.{js,ts,jsx,tsx}',
-    './blog/**/*.{js,ts,jsx,tsx,md}',
+  // removed blog folder references after blog removal
     './*.{js,ts,jsx,tsx}'
   ],
   theme: {
