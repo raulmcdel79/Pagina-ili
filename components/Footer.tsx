@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { PHONE_TEL } from '../constants/contact';
+import { PHONE_TEL, MAILTO_ADDRESS } from '../constants/contact';
 import { Instagram, Facebook, Mail } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
@@ -30,7 +30,6 @@ function NewsletterForm() {
   const [touched, setTouched] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const error = !email
     ? 'El email es obligatorio.'
@@ -50,33 +49,16 @@ function NewsletterForm() {
     if (error) return;
     setLoading(true);
     try {
-      setErrorMessage(null);
-      const payload = {
-        email,
-        _replyto: email,
-        _subject: 'Nueva suscripción al newsletter',
-        message: `El usuario con email ${email} desea participar en la newsletter. Por favor contactar a ilinicolonf@hotmail.com`,
-      };
-
-      const params = new URLSearchParams();
-      Object.entries(payload).forEach(([k, v]) => params.append(k, String(v)));
-
-      try {
-        const res = await fetch('https://formspree.io/f/xblalnpj', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
-          body: params.toString(),
-        });
-        if (res.ok) {
-          setSuccess(true);
-          setEmail('');
-          setTouched(false);
-        } else {
-          setErrorMessage('No se pudo completar la suscripción ahora. Por favor, intenta de nuevo o contacta por WhatsApp.');
-        }
-      } catch (err) {
-        setErrorMessage('Error de red al enviar la suscripción. Por favor, revisa tu conexión e intenta otra vez.');
-      }
+      // Open user's mail client with a prefilled message to subscribe to the newsletter
+      const subject = 'Suscripción al newsletter';
+      const body = `Hola Iliana,%0D%0A%0D%0AMe gustaría suscribirme al newsletter. Mi email es: ${encodeURIComponent(
+        email
+      )}%0D%0A%0D%0AGracias.`;
+      // Use mailto to allow users to send from their email client
+      window.location.href = `mailto:${MAILTO_ADDRESS}?subject=${encodeURIComponent(subject)}&body=${body}`;
+      setSuccess(true);
+      setEmail('');
+      setTouched(false);
     } finally {
       setLoading(false);
     }
@@ -90,12 +72,7 @@ function NewsletterForm() {
     >
       {success && (
         <div className="text-green-600 bg-green-100 border border-green-300 rounded p-2 text-center animate-fade-in mb-2 text-xs">
-          ¡Suscripción realizada! En breve recibirás información por email.
-        </div>
-      )}
-      {errorMessage && (
-        <div className="text-red-600 bg-red-100 border border-red-300 rounded p-2 text-center animate-fade-in mb-2 text-xs">
-          {errorMessage}
+          ¡Suscripción realizada! Revisa tu correo.
         </div>
       )}
       <label className="relative w-full">
