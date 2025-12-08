@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { PHONE_TEL } from '../constants/contact';
+import { PHONE_TEL, MAILTO_ADDRESS } from '../constants/contact';
 import { Instagram, Facebook, Mail } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
@@ -79,6 +79,13 @@ function NewsletterForm() {
     }
   };
 
+  const handleSendEmail = () => {
+    const subject = 'Quiero unirme al newsletter y a la comunidad de bienestar animal';
+    const body = `Hola Iliana,\n\nQuiero unirme al newsletter y pertenecer a la comunidad de bienestar de los animales. Mi email es: ${email}\n\nMuchas gracias.`;
+    const mailto = `mailto:${MAILTO_ADDRESS}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+  };
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -88,6 +95,21 @@ function NewsletterForm() {
       {success && (
         <div className="text-green-600 bg-green-100 border border-green-300 rounded p-2 text-center animate-fade-in mb-2 text-xs">
           ¡Suscripción realizada! En breve recibirás información por email.
+        </div>
+      )}
+      {/** Banner para enviar por email en lugar de usar el formulario */}
+      <div className="my-3 p-3 rounded-lg bg-gradient-to-r from-brand-accent to-brand-light text-brand-dark shadow-md flex items-center justify-between gap-4">
+        <div>
+          <strong className="block">¿Prefieres enviar un email?</strong>
+          <span className="block text-xs mt-1">Puedes enviar un email a ilinicolonf@hotmail.com solicitando unirte al newsletter y a la comunidad de bienestar animal.</span>
+        </div>
+        <div>
+          <button type="button" onClick={handleSendEmail} className="bg-brand-dark text-brand-light px-3 py-2 rounded-md font-semibold">Enviar email</button>
+        </div>
+      </div>
+      {errorMessage && (
+        <div className="text-red-600 bg-red-100 border border-red-300 rounded p-2 text-center animate-fade-in mb-2 text-xs">
+          {errorMessage}
         </div>
       )}
       {errorMessage && (

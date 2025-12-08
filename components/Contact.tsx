@@ -4,6 +4,7 @@ import { useInView } from '../hooks/useInView';
 
 import { Mail, User, MessageCircle } from 'lucide-react';
 import PrivacyPolicyContent from './legal/PrivacyPolicyContent';
+import { MAILTO_ADDRESS, MAILTO_SUBJECT, MAILTO_BODY_TEMPLATE } from '../constants/contact';
 
 const initialState = { nombre: '', email: '', mensaje: '', hp: '', legal: false };
 
@@ -80,6 +81,15 @@ const Contact: React.FC = () => {
     }
   };
 
+  const handleSendEmail = () => {
+    // Construir body usando valores actuales del formulario o plantilla
+    const body = `Hola Iliana,\n\nQuiero ponerme en contacto para recibir información sobre el acompañamiento en duelo animal. Estos son mis datos:\n\nNombre: ${form.nombre || ''}\nTeléfono: ${''}\nEmail: ${form.email || ''}\n\nMi situación:\n${form.mensaje || ''}\n\nGracias por tu ayuda,`;
+    const subject = MAILTO_SUBJECT || 'Consulta acompañamiento duelo animal';
+    const mailto = `mailto:${MAILTO_ADDRESS}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    // Abrir cliente de correo
+    window.location.href = mailto;
+  };
+
   return (
     <section
       id="contacto"
@@ -115,6 +125,22 @@ const Contact: React.FC = () => {
               {errorMessage}
             </div>
           )}
+          {/* Banner con opción de enviar por email (cliente de correo) */}
+          <div className="my-4 p-4 rounded-lg bg-gradient-to-r from-brand-light to-brand-accent text-brand-dark shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="text-left">
+              <strong className="block">¿Prefieres enviar un email?</strong>
+              <span className="block text-sm mt-1">Abre tu cliente de correo con el mensaje prellenado para solicitar acompañamiento en duelo.</span>
+            </div>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={handleSendEmail}
+                className="bg-brand-dark text-brand-light px-4 py-2 rounded-md font-bold hover:opacity-90"
+              >
+                Enviar por email
+              </button>
+            </div>
+          </div>
           {/* Honeypot invisible para bots */}
           <input
             type="text"
