@@ -30,6 +30,7 @@ function NewsletterForm() {
   const [touched, setTouched] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const error = !email
     ? 'El email es obligatorio.'
@@ -49,15 +50,29 @@ function NewsletterForm() {
     if (error) return;
     setLoading(true);
     try {
-      const res = await fetch('https://formspree.io/f/xblalnpj', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, _subject: 'Nueva suscripción al newsletter' }),
-      });
-      if (res.ok) {
-        setSuccess(true);
-        setEmail('');
-        setTouched(false);
+      setErrorMessage(null);
+      const payload = {
+        email,
+        _replyto: email,
+        _subject: 'Nueva suscripción al newsletter',
+        message: `El usuario con email ${email} desea participar en la newsletter. Por favor contactar a ilinicolonf@hotmail.com`,
+      };
+
+      try {
+        const res = await fetch('https://formspree.io/f/xblalnpj', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (res.ok) {
+          setSuccess(true);
+          setEmail('');
+          setTouched(false);
+        } else {
+          setErrorMessage('No se pudo completar la suscripción ahora. Por favor, intenta de nuevo o contacta por WhatsApp.');
+        }
+      } catch (err) {
+        setErrorMessage('Error de red al enviar la suscripción. Por favor, revisa tu conexión e intenta otra vez.');
       }
     } finally {
       setLoading(false);
@@ -72,7 +87,12 @@ function NewsletterForm() {
     >
       {success && (
         <div className="text-green-600 bg-green-100 border border-green-300 rounded p-2 text-center animate-fade-in mb-2 text-xs">
-          ¡Suscripción realizada! Revisa tu correo.
+          ¡Suscripción realizada! En breve recibirás información por email.
+        </div>
+      )}
+      {errorMessage && (
+        <div className="text-red-600 bg-red-100 border border-red-300 rounded p-2 text-center animate-fade-in mb-2 text-xs">
+          {errorMessage}
         </div>
       )}
       <label className="relative w-full">
