@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { PHONE_TEL, MAILTO_ADDRESS } from '../constants/contact';
+import { PHONE_TEL } from '../constants/contact';
 import { Instagram, Facebook, Mail } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
@@ -26,25 +26,110 @@ const Tiktok = () => (
 );
 
 function NewsletterForm() {
-  const handleSendEmail = () => {
-    const subject = 'Suscripción newsletter';
-    const body = 'Hola Iliana,\n\nQuiero suscribirme a la newsletter y formar parte de la comunidad de bienestar animal.\n\nMuchas gracias.';
-    const mailto = `mailto:${MAILTO_ADDRESS}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
+  const [email, setEmail] = useState('');
+  const [touched, setTouched] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const error = !email
+    ? 'El email es obligatorio.'
+    : !/^\S+@\S+\.\S+$/.test(email)
+    ? 'Introduce un email válido.'
+    : '';
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+  const handleBlur = () => setTouched(true);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+    setTouched(true);
+    if (error) return;
+    setLoading(true);
+    try {
+      setErrorMessage(null);
+      const payload = {
+        email,
+        _replyto: email,
+        _subject: 'Nueva suscripción al newsletter',
+        message: `El usuario con email ${email} desea participar en la newsletter. Por favor contactar a ilinicolonf@hotmail.com`,
+      };
+
+      const params = new URLSearchParams();
+      Object.entries(payload).forEach(([k, v]) => params.append(k, String(v)));
+
+      try {
+        const res = await fetch('https://formspree.io/f/xblalnpj', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
+          body: params.toString(),
+        });
+        if (res.ok) {
+          setSuccess(true);
+          setEmail('');
+          setTouched(false);
+        } else {
+          setErrorMessage('No se pudo completar la suscripción ahora. Por favor, intenta de nuevo o contacta por WhatsApp.');
+        }
+      } catch (err) {
+        setErrorMessage('Error de red al enviar la suscripción. Por favor, revisa tu conexión e intenta otra vez.');
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div className="w-full max-w-xs">
-      <div className="my-3 p-3 rounded-lg bg-gradient-to-r from-brand-accent to-brand-light text-brand-dark shadow-md flex items-center justify-between gap-4">
-        <div>
-          <strong className="block">Suscribte a nuestra newletter.</strong>
-          <span className="block text-xs mt-1">Únete a nuestra comunidad de bienestar animal.</span>
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-2 w-full max-w-xs bg-white/10 p-4 rounded shadow-lg backdrop-blur"
+      autoComplete="off"
+    >
+      {success && (
+        <div className="text-green-600 bg-green-100 border border-green-300 rounded p-2 text-center animate-fade-in mb-2 text-xs">
+          ¡Suscripción realizada! En breve recibirás información por email.
         </div>
-        <div>
-          <button type="button" onClick={handleSendEmail} className="bg-brand-dark text-brand-light px-3 py-2 rounded-md font-semibold">Enviar email</button>
+      )}
+      {errorMessage && (
+        <div className="text-red-600 bg-red-100 border border-red-300 rounded p-2 text-center animate-fade-in mb-2 text-xs">
+          {errorMessage}
         </div>
-      </div>
-    </div>
+      )}
+      <label className="relative w-full">
+        <span className="sr-only">Email</span>
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-brand-accent"><Mail size={18} /></span>
+        <input
+          type="email"
+          name="email"
+          placeholder="Tu email"
+          value={email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          className={`pl-10 pr-3 py-2 rounded text-sm text-brand-dark bg-white/80 focus:outline-none focus:ring-2 focus:ring-brand-accent w-full border ${error && (touched || submitted) ? 'border-red-400' : 'border-white/10'} shadow-sm`}
+          required
+          aria-invalid={!!error}
+          aria-describedby="newsletter-email-error"
+          autoComplete="email"
+        />
+        {error && (touched || submitted) && (
+          <span id="newsletter-email-error" className="text-xs text-red-500 mt-1 block animate-fade-in">{error}</span>
+        )}
+      </label>
+      <button
+        type="submit"
+        className={`bg-brand-accent text-brand-dark font-bold px-4 py-2 rounded hover:bg-brand-light transition-colors mt-2 relative overflow-hidden ${loading ? 'opacity-60 pointer-events-none' : ''}`}
+        disabled={loading}
+      >
+        {loading ? (
+          <span className="flex items-center justify-center gap-2"><span className="animate-spin h-4 w-4 border-2 border-t-transparent border-brand-dark rounded-full"></span> Enviando...</span>
+        ) : (
+          'Suscribirse'
+        )}
+      </button>
+    </form>
   );
 }
 
