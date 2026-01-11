@@ -2,7 +2,7 @@
 export const WHATSAPP_NUMBER = '665149561';
 export const PHONE_TEL = '665149561';
 
-export const WHATSAPP_DEFAULT_MESSAGE = `Hola Iliana,\n\nMe gustaría recibir información por WhatsApp sobre el acompañamiento en duelo animal. Estos son mis datos:\n\nNombre: \nTeléfono: \nEmail: \n\nMi situación es: \n\n(Por favor, cuéntame brevemente tu caso o duda)\n\nGracias por tu ayuda,`;
+export const WHATSAPP_DEFAULT_MESSAGE = `Hola Iliana,\n\nMe gustaría recibir información por WhatsApp sobre el acompañamiento en duelo animal.\n\nNombre: \nTeléfono: \nEmail: \n\nMi situación es: \n\n(Por favor, cuéntame brevemente tu caso o duda)\n\nGracias por tu ayuda,`;
 
 export const MAILTO_ADDRESS = 'ilinicolonf@hotmail.com';
 export const MAILTO_SUBJECT = 'Deseo información sobre el acompañamiento en duelo de mi compañero';
