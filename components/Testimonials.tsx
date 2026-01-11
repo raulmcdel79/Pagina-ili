@@ -14,7 +14,7 @@ const testimonials = [
     avatar: "/imagenes/Luna.png"
   },
   {
-    quote: "Muchísimas gracias, me ha encantado tenerte cuidando a mi chico. No sabes lo agradecida que estoy de que pueda contar contigo para cuidar a Bujo cuando me voy, porque aunque sea tan antipático para mí es como mi bebé. Ha sido un placer conocerte mejor y ver con que amor lo has tratado y como cuidas de todos los peluditos.",
+    quote: "Ili, mil gracias por la dedicatoria. Para mí ha sido un placer conocerte mejor y ver con qué amor has tratado a Bujo y cómo cuidas de todos los peluditos.",
     author: "Carmen, Tutora de Bujo",
   avatar: "/imagenes/gato-residencia-valencia-1.png",
   alt: "Gato en residencia felina en Valencia"
@@ -118,7 +118,21 @@ const Testimonials: React.FC = () => {
               }}
             >
               <div className="flex flex-col items-center justify-center py-8 md:py-10">
-                <img src={testimonial.avatar} alt={testimonial.alt || `Foto de ${testimonial.author}, tutor satisfecho`} loading="lazy" className="w-20 h-20 rounded-full mb-6 border-4 border-white/10"/>
+                <div className="relative flex items-center justify-center mb-6">
+                  {/* Left arrow positioned at the side of the avatar */}
+                  {index === currentIndex && (
+                    <button onClick={prevSlide} className="absolute left-[-36px] md:left-[-56px] top-1/2 -translate-y-1/2 bg-white/5 p-3 rounded-full hover:bg-white/10 transition-colors z-20" aria-label="Previous testimonial">
+                      <ArrowLeft size={20} />
+                    </button>
+                  )}
+                  <img src={testimonial.avatar} alt={testimonial.alt || `Foto de ${testimonial.author}, tutor satisfecho`} loading="lazy" className="w-20 h-20 rounded-full border-4 border-white/10"/>
+                  {/* Right arrow positioned at the side of the avatar */}
+                  {index === currentIndex && (
+                    <button onClick={nextSlide} className="absolute right-[-36px] md:right-[-56px] top-1/2 -translate-y-1/2 bg-white/5 p-3 rounded-full hover:bg-white/10 transition-colors z-20" aria-label="Next testimonial">
+                      <ArrowRight size={20} />
+                    </button>
+                  )}
+                </div>
                 <p className="text-xl md:text-2xl font-source-serif italic text-brand-light/90 leading-relaxed max-w-3xl px-2 md:px-4">
                   "{testimonial.quote}"
                 </p>
