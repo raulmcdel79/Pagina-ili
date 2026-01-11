@@ -119,6 +119,24 @@ const Testimonials: React.FC = () => {
             >
               <div className="flex flex-col items-center justify-center py-8 md:py-10">
                 <div className="relative flex items-center justify-center mb-6">
+                  {index === currentIndex && (
+                    <>
+                      <button
+                        onClick={prevSlide}
+                        aria-label="Previous testimonial"
+                        className="absolute left-[-44px] md:left-[-64px] top-1/2 -translate-y-1/2 bg-white/5 p-2 md:p-3 rounded-full hover:bg-white/10 transition-colors z-30 pointer-events-auto"
+                      >
+                        <ArrowLeft size={20} />
+                      </button>
+                      <button
+                        onClick={nextSlide}
+                        aria-label="Next testimonial"
+                        className="absolute right-[-44px] md:right-[-64px] top-1/2 -translate-y-1/2 bg-white/5 p-2 md:p-3 rounded-full hover:bg-white/10 transition-colors z-30 pointer-events-auto"
+                      >
+                        <ArrowRight size={20} />
+                      </button>
+                    </>
+                  )}
                   <img src={testimonial.avatar} alt={testimonial.alt || `Foto de ${testimonial.author}, tutor satisfecho`} loading="lazy" className="w-20 h-20 rounded-full border-4 border-white/10"/>
                 </div>
                 <p className="text-xl md:text-2xl font-source-serif italic text-brand-light/90 leading-relaxed max-w-3xl px-2 md:px-4">
@@ -130,27 +148,7 @@ const Testimonials: React.FC = () => {
           ))}
         </div>
         
-        {/* Always-visible arrows centered to the slide content (aligned with avatar area) */}
-        <div className="absolute inset-y-0 left-0 right-0 flex items-center pointer-events-none" aria-hidden="true">
-          <div className="w-full flex justify-center">
-            <div className="relative w-[min(90%,720px)] h-full">
-              <button
-                onClick={prevSlide}
-                aria-label="Previous testimonial"
-                className="pointer-events-auto absolute left-2 md:left-0 top-1/2 -translate-y-1/2 bg-white/5 p-2 md:p-3 rounded-full hover:bg-white/10 transition-colors z-30"
-              >
-                <ArrowLeft size={20} />
-              </button>
-              <button
-                onClick={nextSlide}
-                aria-label="Next testimonial"
-                className="pointer-events-auto absolute right-2 md:right-0 top-1/2 -translate-y-1/2 bg-white/5 p-2 md:p-3 rounded-full hover:bg-white/10 transition-colors z-30"
-              >
-                <ArrowRight size={20} />
-              </button>
-            </div>
-          </div>
-        </div>
+        {/* Arrows are rendered next to the avatar inside each active slide */}
 
         <div className="flex justify-center mt-12 space-x-3">
             {testimonials.map((_, index) => (
