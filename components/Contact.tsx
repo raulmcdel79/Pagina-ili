@@ -7,10 +7,10 @@ const Contact: React.FC = () => {
   const [titleRef, titleInView] = useInView<HTMLHeadingElement>({ threshold: 0.2, triggerOnce: true });
 
   const handleContactClick = () => {
-    const subject = 'Consulta desde A.T.A.D. - Asistente de Tutores de Animales Domésticos';
-    const body = `Hola Iliana,%0D%0A%0D%0ATe contacto desde A.T.A.D. con la siguiente consulta:%0D%0A%0D%0ANombre: %0D%0AEmail: %0D%0A%0D%0AMensaje:%0D%0A%0D%0A%0D%0AGracias.`;
+    const subject = 'Consulta desde A.T.A.D.';
+    const body = `Hola Iliana,\n\nTe contacto desde A.T.A.D. con la siguiente consulta:\n\nNombre: \nEmail: \n\nMensaje:\n\n\nGracias.`;
     
-    window.location.href = `mailto:${MAILTO_ADDRESS}?subject=${encodeURIComponent(subject)}&body=${body}`;
+    window.location.href = `mailto:${MAILTO_ADDRESS}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
