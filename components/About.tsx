@@ -36,13 +36,13 @@ const About: React.FC = () => {
               <h2 id="sobre-ili-header" className="text-4xl md:text-6xl font-playfair mb-4 text-[#7B4A1D]">Sobre mí</h2>
               <div className="space-y-4 leading-relaxed font-source-serif" style={{ color: '#3d2c23' }}>
                 <p>
-                Mi nombre es Iliana. Nací en Uruguay, donde me formé en Enfermería y Comunicación Social, especializándome en Publicidad. Desde siempre me ha fascinado el comportamiento humano y el vínculo humano-animal en todas sus formas. Mi naturaleza empática me lleva a acompañar con sensibilidad a quienes atraviesan momentos difíciles, y a apoyar a los tutores en el cuidado cotidiano de sus compañeros animales.
+                Mi nombre es Iliana. Nací en Uruguay, donde me formé en Enfermería y Comunicación Social, especializándome en Publicidad. Desde siempre me ha fascinado el comportamiento humano y el vínculo humano-animal en todas sus formas. Mi naturaleza empática me lleva a acompañar con sensibilidad a quienes atraviesan momentos difíciles, y apoyar a los tutores en el cuidado cotidiano de sus compañeros animales.
               </p>
               <p>
                 Soy amante de la naturaleza y de los animales. Estar rodeada de ellos me conecta con lo esencial.
               </p>
               <p>
-                Mi vida cambió profundamente con la llegada de Teo, mi perrihijo. Aunque ya no está físicamente conmigo, vive en mi corazón y guía cada paso que doy. Teo me enseñó a vivir cada segundo con plenitud y a luchar con amor. Su partida fue dolorosa, pero también el inicio de una transformación: me formé como Acompañante en el Duelo Animal (ADA) junto a mi mentora Laura Vidal, quien me brindó herramientas para acompañar desde una mirada compasiva, consciente y transformadora.
+                Mi vida cambió profundamente con la llegada de Teo, mi perrhijo. Aunque ya no está físicamente conmigo, vive en mi corazón y guía cada paso que doy. Teo me enseñó a vivir cada segundo con plenitud y a luchar con amor. Su partida fue dolorosa, pero también el inicio de una transformación: me formé como Acompañante en el Duelo Animal (ADA) junto a mi mentora Laura Vidal, quien me brindó herramientas para acompañar desde una mirada compasiva, consciente y transformadora.
               </p>
               <p>
                 Desde entonces, he recorrido un camino de formación y servicio, ofreciendo apoyo integral a familias multiespecie. Hoy, después de dos años de dedicación, me siento profundamente agradecida de poder ayudar a quienes aman a los animales a vivir con mayor tranquilidad, ofreciendo cuidados adaptados a cada ser y a cada vínculo.

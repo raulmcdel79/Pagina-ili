@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useInView } from '../hooks/useInView';
-
-
+import { MAILTO_ADDRESS } from '../constants/contact';
 import { Mail, User, MessageCircle } from 'lucide-react';
 import PrivacyPolicyContent from './legal/PrivacyPolicyContent';
 
@@ -45,40 +44,29 @@ const Contact: React.FC = () => {
     setSubmitted(true);
     setTouched({ nombre: true, email: true, mensaje: true });
     if (!isValid) return;
+    
+    // No enviar si honeypot relleno
+    if (form.hp) return;
+    
     setLoading(true);
+    setErrorMessage(null);
+    
     try {
-      // No enviar si honeypot relleno
-      if (form.hp) return;
-      const { hp, legal, ...safeForm } = form;
-      // Map fields to names expected by Formspree and send form-encoded
-      const payload = {
-        name: safeForm.nombre || '',
-        email: safeForm.email || '',
-        _replyto: safeForm.email || '',
-        _subject: 'Contacto desde sitio web',
-        message: safeForm.mensaje || '',
-      };
-
-      const params = new URLSearchParams();
-      Object.entries(payload).forEach(([k, v]) => params.append(k, String(v)));
-
-      try {
-        const res = await fetch('https://formspree.io/f/xblalnpj', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
-          body: params.toString(),
-        });
-        if (res.ok) {
-          setSuccess(true);
-          setErrorMessage(null);
-          setForm(initialState);
-          setTouched({});
-        } else {
-          setErrorMessage('No se pudo enviar el mensaje ahora. Por favor, intenta de nuevo o contactame por WhatsApp.');
-        }
-      } catch (err) {
-        setErrorMessage('Error de red al enviar el formulario. Por favor, verifica tu conexión e intenta de nuevo.');
-      }
+      // Construir el asunto y cuerpo del email
+      const subject = 'Consulta desde A.T.A.D. - Asistente de Tutores de Animales Domésticos';
+      const body = `Hola Iliana,%0D%0A%0D%0ATe contacto desde el formulario de A.T.A.D. con la siguiente consulta:%0D%0A%0D%0ANombre: ${encodeURIComponent(form.nombre)}%0D%0AEmail: ${encodeURIComponent(form.email)}%0D%0A%0D%0AMensaje:%0D%0A${encodeURIComponent(form.mensaje)}%0D%0A%0D%0AGracias.`;
+      
+      // Abrir el cliente de correo del usuario con los datos precargados
+      window.location.href = `mailto:${MAILTO_ADDRESS}?subject=${encodeURIComponent(subject)}&body=${body}`;
+      
+      setSuccess(true);
+      setErrorMessage(null);
+      setForm(initialState);
+      setTouched({});
+      setSubmitted(false);
+    } catch (err) {
+      console.error('Error al abrir el cliente de correo:', err);
+      setErrorMessage('No se pudo abrir el cliente de correo. Por favor, contactame directamente por WhatsApp.');
     } finally {
       setLoading(false);
     }
@@ -111,7 +99,7 @@ const Contact: React.FC = () => {
         >
           {success && (
             <div className="text-green-600 bg-green-100 border border-green-300 rounded p-3 text-center animate-fade-in mb-4">
-              Tu mensaje se ha enviado correctamente. En breve recibirás más información sobre tu caso.
+              ¡Formulario completado! Se abrió tu cliente de correo. Revisa el email y envíalo cuando estés listo.
             </div>
           )}
           {errorMessage && (
