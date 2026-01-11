@@ -134,11 +134,19 @@ const Testimonials: React.FC = () => {
         <div className="absolute inset-y-0 left-0 right-0 flex items-center pointer-events-none" aria-hidden="true">
           <div className="w-full flex justify-center">
             <div className="relative w-[min(90%,720px)] h-full">
-              <button onClick={prevSlide} aria-label="Previous testimonial" className="pointer-events-auto absolute left-0 top-1/2 -translate-y-1/2 bg-white/5 p-3 rounded-full hover:bg-white/10 transition-colors">
-                <ArrowLeft size={24} />
+              <button
+                onClick={prevSlide}
+                aria-label="Previous testimonial"
+                className="pointer-events-auto absolute left-2 md:left-0 top-1/2 -translate-y-1/2 bg-white/5 p-2 md:p-3 rounded-full hover:bg-white/10 transition-colors z-30"
+              >
+                <ArrowLeft size={20} />
               </button>
-              <button onClick={nextSlide} aria-label="Next testimonial" className="pointer-events-auto absolute right-0 top-1/2 -translate-y-1/2 bg-white/5 p-3 rounded-full hover:bg-white/10 transition-colors">
-                <ArrowRight size={24} />
+              <button
+                onClick={nextSlide}
+                aria-label="Next testimonial"
+                className="pointer-events-auto absolute right-2 md:right-0 top-1/2 -translate-y-1/2 bg-white/5 p-2 md:p-3 rounded-full hover:bg-white/10 transition-colors z-30"
+              >
+                <ArrowRight size={20} />
               </button>
             </div>
           </div>
